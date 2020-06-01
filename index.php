@@ -26,12 +26,12 @@
         });
     });
 
-    function deleteUser(id) {
+    function deleteTopic(id) {
         data = "id=" + id;
         $.ajax({
-            url: "includes/model/deleteTopic.php", // API which will process the data
+            type: "GET",
+            url: "includes/model/delete.php", // API which will process the data
             data: data, // Data 
-
             // Actions after the event was processed sucessfully
             success: function( result ) {
                 if(result != 0) {

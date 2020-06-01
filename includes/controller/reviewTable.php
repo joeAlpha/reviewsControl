@@ -10,22 +10,21 @@
         <tbody>
             <?php
                 $query = "SELECT * FROM review";    
-                $result = mysqli_query($connection, $query);
+                $result = $connection->query($query);
 
-                // Gets the result as an array of key->value
-                while($row = mysqli_fetch_array($result)) { ?>
+                while($row = $result->fetch_array(MYSQLI_ASSOC)) { ?>
 
                 <tr>
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['fk_subject']; ?></td>
                     <td>
-                        <a href="editUser.php?id=<?php echo $row['id']?>" class="btn btn-success">
+                        <a href="../model/complete.php?id=<?php echo $row['review_id']?>" class="btn btn-success">
                             <i class="fas fa-check"></i> Review 
                         </a>
-                        <a href="editUser.php?id=<?php echo $row['id']?>" class="btn btn-warning">
+                        <a href="../model/edit.php?id=<?php echo $row['review_id']?>" class="btn btn-warning">
                             <i class="fas fa-edit"></i> Edit
                         </a>
-                        <a onclick="deleteUser(<?php echo $row['id']?>)" class="btn btn-danger" cursor="pointer">
+                        <a onclick="deleteTopic(<?php echo $row['review_id']?>)" class="btn btn-danger">
                             <i class="fas fa-trash-alt"></i> Delete
                         </a>
 
