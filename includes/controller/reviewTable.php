@@ -1,3 +1,4 @@
+
     <table class="table table-bordered table-dark">
         <thead>
             <tr>
@@ -18,10 +19,10 @@
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['fk_subject']; ?></td>
                     <td>
-                        <a href="../model/complete.php?id=<?php echo $row['review_id']?>" class="btn btn-success">
+                        <a href="includes/model/complete.php?id=<?php echo $row['review_id']?>" class="btn btn-success">
                             <i class="fas fa-check"></i> Review 
                         </a>
-                        <a href="../model/edit.php?id=<?php echo $row['review_id']?>" class="btn btn-warning">
+                        <a href="includes/controller/edit.php?id=<?php echo $row['review_id']?>" class="btn btn-warning">
                             <i class="fas fa-edit"></i> Edit
                         </a>
                         <a onclick="deleteTopic(<?php echo $row['review_id']?>)" class="btn btn-danger">

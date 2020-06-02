@@ -12,7 +12,7 @@
             console.log(formData);
             $.ajax({
                 type: "POST", 
-                url: "includes/model/saveTopic.php",
+                url: "includes/model/save.php",
                 data: formData,
                 success: function( result ) {
                     if(result != 0) {
