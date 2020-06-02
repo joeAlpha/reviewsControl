@@ -48,7 +48,7 @@
 
 <div class="container-fluid p-4">
     <div class="row">
-        <div class="col-md-4 mt-4">
+        <div class="col-md-3 mt-4">
             <div class="card card-body">
                 <form id="userForm" action="" method="POST">
                     <div class="form-group">
@@ -56,13 +56,19 @@
                     </div>
                     <div class="form-group">
                         <select class="form-control" id="subject" name="subject">
-                            <!-- Load subjects --> 
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option value="new">Choose subject</option>
+                            <?php
+                                $query = "SELECT * FROM subject";
+                                $result = $connection->query($query);
+                                while($row = $result->fetch_array(MYSQLI_ASSOC)) { ?>
+                                <option value="">
+                                    <?php echo $row['name'] ?>
+                                </option>;
+                                <?php } ?>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="New subject" type="text" name="newSubject" id="newSubject" class="form-control">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-lg btn-success btn-block" type="submit" value="Save topic" name="saveTopic">
@@ -73,7 +79,7 @@
             </div>
         </div>
 
-        <div id="tableContainer" class="col-md-8 mt-4 table-responsive">
+        <div id="tableContainer" class="col-md-9 mt-4 table-responsive">
             <?php include("includes/controller/reviewTable.php") ?>
         </div>
     </div>

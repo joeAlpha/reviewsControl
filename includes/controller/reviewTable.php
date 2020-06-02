@@ -1,5 +1,5 @@
 
-    <table class="table table-bordered table-dark">
+    <table class="table table-bordered table-dark text-center">
         <thead>
             <tr>
                 <th>Name</th>

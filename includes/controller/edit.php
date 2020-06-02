@@ -21,7 +21,7 @@
         $id = $_GET['id'];
         $name = $_POST['name'];
 		$subject = $_POST['subject'];
-		$query = "UPDATE review SET name = '$name', subject = '$subject' WHERE id = '$id'";
+		$query = "UPDATE review SET name = '$name', fk_subject = '$subject' WHERE review_id = '$id'";
         $connection->query($query);
         header("Location: ../../index.php");
     } 
@@ -38,12 +38,15 @@
                     </div>
                     <div class="form-group">
                         <select value="<?php echo $fk_subject; ?>" class="form-control" id="subject" name="subject">
-                            <!-- Load subjects --> 
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option value="new">Choose subject</option>
+                            <?php
+                                $query = "SELECT * FROM subject";
+                                $result = $connection->query($query);
+                                while($row = $result->fetch_array(MYSQLI_ASSOC)) { ?>
+                                <option value="">
+                                    <?php echo $row['name'] ?>
+                                </option>;
+                                <?php } ?>
                         </select>
                     </div>
                     <div class="form-group">
