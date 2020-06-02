@@ -1,36 +1,31 @@
 <?php
-    include("includes/connection.php");
+    include("db.php");
 
     if(isset($_POST) && count($_POST) > 0) {
-        $email = $_POST['email'];
+        $username = $_POST['user'];
         $password = $_POST['password'];
 
-        if($email == 'admin' && $password == 'admin') {
-            header('Location: reportes.php');
+
+        $query =  
+            "SELECT * FROM user
+            WHERE password='$password' AND 
+            name='$username'";
+
+        $result = $connection->query($query);
+        $data = $result->fetch_array(MYSQLI_ASSOC); 
+
+        if($result->num_rows >= 1) {
+            session_start();
+            $_SESSION['id'] = $data['id']; 
+            $_SESSION['username'] = $data['name']; 
+            $_SESSION['password'] = $data['password']; 
+            header('Location: ../../index.php');
         } else {
-            /* $query =  mysql_query( */
-            /*     "SELECT FROM usuario(claveDeAcceso, contacto) */
-            /*     WHERE claveDeAcceso=$password AND */
-            /*     contacto=$email"); */
-
-            $query =  
-                "SELECT idUsuario FROM usuario
-                WHERE claveDeAcceso='$password' AND 
-                contacto='$email'";
-
-            /* $query = "SELECT * FROM user"; */    
-            $resultado = mysqli_query($connection, $query);
-
-            if(mysqli_num_rows($resultado) >= 1) {
-                header('Location: chatV2.php');
-            } else {
-                echo "Error de credenciales ...";
-                /* echo var_dump(mysqli_num_rows($resultado)); */
-                echo "<meta http-equiv = 'Refresh' content='3; url = loginV2.php'>";
-            }
+            echo "Error de credenciales ...";
+            echo "<meta http-equiv = 'Refresh' content='3; url = ../view/login.php'>";
         }
     } else {
         echo "Campos sin rellenar ...";
-        echo "<meta http-equiv = 'Refresh' content='3; url = loginV2.php'>";
+        echo "<meta http-equiv = 'Refresh' content='3; url = ../view/login.php'>";
     }
 ?>

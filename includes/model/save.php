@@ -2,7 +2,11 @@
 	include("db.php");
     $name = $_POST['name'];
     $subject = $_POST['subject'];
-    $query = "INSERT INTO review(name,fk_subject) VALUES('$name','$subject')";
+    if($_POST['subject']) {
+        $insertNewSubject = "INSERT INTO subject(name,fk_subject) VALUES('$name','$subject')"; 
+    }
+
+    $insertNewTopic = "INSERT INTO review(name,fk_subject) VALUES('$name','$subject')";
 
     $result = $connection->query($query);
 

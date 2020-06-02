@@ -1,6 +1,12 @@
-<?php include("includes/model/db.php"); ?>
-<?php include("includes/view/header.php"); ?>
-<?php include("includes/view/nav.php"); ?>
+<?php
+    session_start();
+    if(!isset($_SESSION)) {
+        header("Location: includes/view/login.php");
+    }
+    include("includes/model/db.php");
+    include("includes/view/header.php");
+    include("includes/view/nav.php"); 
+?>
 
 <script>
     // After press 'Save topic'
@@ -50,6 +56,7 @@
     <div class="row">
         <div class="col-md-3 mt-4">
             <div class="card card-body">
+                <h1 class="mb-4">Welcome <?php echo $_SESSION['username']; ?>!</h1>
                 <form id="userForm" action="" method="POST">
                     <div class="form-group">
                         <input placeholder="Topic name" type="text" name="name" id="name" class="form-control">
