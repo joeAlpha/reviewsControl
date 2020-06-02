@@ -10,14 +10,22 @@
 
         <tbody>
             <?php
-                $query = "SELECT * FROM review";    
-                $result = $connection->query($query);
+                $reviewQuery = "SELECT * FROM review";    
+                $reviewResult = $connection->query($reviewQuery);
 
-                while($row = $result->fetch_array(MYSQLI_ASSOC)) { ?>
+                while($reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC)) { ?>
 
                 <tr>
-                    <td><?php echo $row['name']; ?></td>
-                    <td><?php echo $row['fk_subject']; ?></td>
+                    <td><?php echo $reviewRow['name']; ?></td>
+                    <td>
+                        <?php 
+                            $subjectId = $reviewRow['fk_subject'];
+                            $subjectNameQuery = "SELECT name FROM subject WHERE id = '$subjectId'";
+                            $subjectNameResult = $connection->query($subjectNameQuery);
+                            $subjectNameRow = $subjectNameResult->fetch_array(MYSQLI_ASSOC);
+                            echo $subjectNameRow['name'];
+                        ?>
+                    </td>
                     <td>
                         <a href="includes/model/complete.php?id=<?php echo $row['review_id']?>" class="btn btn-success">
                             <i class="fas fa-check"></i> Review 
