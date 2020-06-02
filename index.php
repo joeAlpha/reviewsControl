@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!isset($_SESSION)) {
+    if(!isset($_SESSION['username'])) {
         header("Location: includes/view/login.php");
     }
     include("includes/model/db.php");
@@ -24,7 +24,7 @@
                     if(result != 0) {
                         $("#tableContainer").html(result);
                     } else {
-                        alert("The insertion failed!");
+                        alert("ERROR AT INSERT TOPIC");
                     }
 
                 }
@@ -63,12 +63,11 @@
                     </div>
                     <div class="form-group">
                         <select class="form-control" id="subject" name="subject">
-                            <option value="new">Choose subject</option>
                             <?php
                                 $query = "SELECT * FROM subject";
                                 $result = $connection->query($query);
                                 while($row = $result->fetch_array(MYSQLI_ASSOC)) { ?>
-                                <option value="">
+                                <option value="<?php echo $row['id'] ?>">
                                     <?php echo $row['name'] ?>
                                 </option>;
                                 <?php } ?>
