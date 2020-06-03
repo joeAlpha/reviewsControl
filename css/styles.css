@@ -5,3 +5,7 @@ body {
 .btn {
     cursor: pointer;
 }
+
+.fa-user {
+    font-size: 80px;
+}

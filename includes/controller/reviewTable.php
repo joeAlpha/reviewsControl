@@ -1,5 +1,5 @@
 
-    <table class="table table-bordered table-dark text-center">
+    <table class="table table-hover table-dark text-center">
         <thead>
             <tr>
                 <th>Name</th>
@@ -27,7 +27,7 @@
                         ?>
                     </td>
                     <td>
-                        <a href="includes/model/complete.php?id=<?php echo $reviewRow['review_id']?>" class="btn btn-success">
+                        <a onclick="completeTopic(<?php echo $reviewRow['review_id']?>,<?php echo date("Y-m-d", strtotime($reviewRow['review_date']))?>, <?php echo $reviewRow['number_of_review']?>)" class="btn btn-success">
                             <i class="fas fa-check"></i> Review 
                         </a>
                         <a href="includes/controller/edit.php?id=<?php echo $reviewRow['review_id']?>" class="btn btn-warning">
@@ -41,5 +41,4 @@
                 </tr>
 
             <?php } ?>
-        </tbody>
-    </table>
+        </tbody> </table>

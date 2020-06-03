@@ -8,55 +8,26 @@
     include("includes/view/nav.php"); 
 ?>
 
-<script>
-    // After press 'Save topic'
-    $(document).ready(function(e) {
-        /* console.log("ok"); */
-        $('#userForm').submit(function(submitEvent) {
-            submitEvent.preventDefault();
-            var formData = $(this).serialize(); 
-            console.log(formData);
-            $.ajax({
-                type: "POST", 
-                url: "includes/model/save.php",
-                data: formData,
-                success: function( result ) {
-                    if(result != 0) {
-                        $("#tableContainer").html(result);
-                    } else {
-                        alert("ERROR AT INSERT TOPIC");
-                    }
-
-                }
-            });
-        });
-    });
-
-    function deleteTopic(id) {
-        data = "id=" + id;
-        $.ajax({
-            type: "GET",
-            url: "includes/model/delete.php", // API which will process the data
-            data: data, // Data 
-            // Actions after the event was processed sucessfully
-            success: function( result ) {
-                if(result != 0) {
-                    // Change the DOM
-                    $("#tableContainer").html(result);
-                } else {
-                    alert("The insertion failed!");
-                }
-
-            }
-        });
-    }
-</script>
-
 <div class="container-fluid p-4">
+<!--
+    <div class="card card-body row">
+        <i class="fas fa-user text-center"></i>
+        <h1 class="mb-4 mt-4 text-center">Welcome <?php echo $_SESSION['username']; ?>!</h1>
+    </div>
+-->
     <div class="row">
         <div class="col-md-3 mt-4">
             <div class="card card-body">
-                <h1 class="mb-4">Welcome <?php echo $_SESSION['username']; ?>!</h1>
+                <i class="fas fa-user text-center"></i>
+                <h1 class="mb-4 mt-4 text-center">Welcome <?php echo $_SESSION['username']; ?>!</h1>
+                        <div class="mx-1 mb-4 text-center">
+                            <button class="mr-2 btn btn-lg btn-warning" type="submit" value="Save topic" name="saveTopic">
+                                <i class="fas fa-sign-out-alt"></i> Log out
+                            </button>
+                            <button class="btn btn-lg btn-primary" type="submit" value="Save topic" name="saveTopic">
+                                <i class="fas fa-cog"></i> Settings
+                            </button>
+                        </div>
                 <form id="userForm" action="" method="POST">
                     <div class="form-group">
                         <input placeholder="Topic name" type="text" name="name" id="name" class="form-control">
