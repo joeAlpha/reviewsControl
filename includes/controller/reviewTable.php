@@ -27,13 +27,13 @@
                         ?>
                     </td>
                     <td>
-                        <a href="includes/model/complete.php?id=<?php echo $row['review_id']?>" class="btn btn-success">
+                        <a href="includes/model/complete.php?id=<?php echo $reviewRow['review_id']?>" class="btn btn-success">
                             <i class="fas fa-check"></i> Review 
                         </a>
-                        <a href="includes/controller/edit.php?id=<?php echo $row['review_id']?>" class="btn btn-warning">
+                        <a href="includes/controller/edit.php?id=<?php echo $reviewRow['review_id']?>" class="btn btn-warning">
                             <i class="fas fa-edit"></i> Edit
                         </a>
-                        <a onclick="deleteTopic(<?php echo $row['review_id']?>)" class="btn btn-danger">
+                        <a onclick="deleteTopic(<?php echo $reviewRow['review_id']?>)" class="btn btn-danger">
                             <i class="fas fa-trash-alt"></i> Delete
                         </a>
 
