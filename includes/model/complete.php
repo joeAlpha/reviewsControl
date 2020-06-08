@@ -31,6 +31,19 @@
             break;
         case 3: $newDate->add(new DateInterval('P8D')); 
             break;
+        case 4: $newDate->add(new DateInterval('P16D')); 
+            break;
+        case 5: $newDate->add(new DateInterval('P32D')); 
+            break;
+        case 6: $newDate->add(new DateInterval('P64D')); 
+            break;
+        case 7: $newDate->add(new DateInterval('P128D')); 
+            break;
+        case 8: $newDate->add(new DateInterval('P256D')); 
+            break;
+        case 9: $newDate->add(new DateInterval('P512D')); 
+            break;
+        
     }
     $numberOfReview += 1;
     $dateFormatted = $newDate->format('Y-m-d H:i:s');

@@ -1,7 +1,15 @@
 <?php 
+	// Destroy the session
 	session_start();
 	$_SESSION = array();
 	session_destroy();
-	echo 0;
-	// header('Location: ../view/login.php');
+
+	// Unset the cookie
+	if (isset($_COOKIE['id'])) {
+		unset($_COOKIE['id']); 
+		setcookie('id', null, -1, '/'); 
+		header('Location: ../view/login.php');
+	} else {
+		return false;
+	}
 ?>

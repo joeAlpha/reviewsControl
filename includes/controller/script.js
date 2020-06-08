@@ -69,9 +69,9 @@
     function logout() {
         $.ajax({
             type: "POST",
-            url: "../model/logout.php",
+            url: "includes/model/logout.php",
             success: function(result) {
-                if (result != 0) {
+                if (!result) {
                     console.warn("Error at closing session");
                 } else {
                     window.location.href = 'includes/view/login.php';

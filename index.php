@@ -1,6 +1,6 @@
 <?php
 	session_start();
-    if(!isset($_SESSION['id'])) {
+    if(!isset($_SESSION['id']) || !isset($_COOKIE['id'])) {
         header("Location: includes/view/login.php");
     }
     include("includes/model/db.php");
