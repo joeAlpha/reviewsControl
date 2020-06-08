@@ -5,7 +5,6 @@
         $username = $_POST['user'];
         $password = $_POST['password'];
 
-
         $query =  
             "SELECT * FROM user
             WHERE password='$password' AND 
@@ -14,11 +13,12 @@
         $result = $connection->query($query);
         $data = $result->fetch_array(MYSQLI_ASSOC); 
 
-        if($result->num_rows >= 1) {
+        if($result->num_rows == 1) {
             session_start();
             $_SESSION['id'] = $data['id']; 
             $_SESSION['username'] = $data['name']; 
-            $_SESSION['password'] = $data['password']; 
+            $_SESSION['password'] = $data['password'];
+            setcookie("id", $data['id'], time() + (86400 * 30), "/"); 
             header('Location: ../../index.php');
         } else {
             echo "Error de credenciales ...";

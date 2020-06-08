@@ -1,5 +1,6 @@
 <?php
-	include("db.php");
+    include("db.php");
+    // var_dump($_POST);
     $name = $_POST['name'];
     $subjectId = $_POST['subject'];
 
@@ -19,23 +20,23 @@
             $insertNewTopicQuery = "INSERT INTO review(name,fk_subject) VALUES('$name','$lastSubjectIdValue')";
             $insertNewTopicResult = $connection->query($insertNewTopicQuery);
             if($insertNewTopicResult) {
-                include("../controller/reviewTable.php");
+                include("../view/reviewTable.php");
             } else {
                 echo 0;
                 die("Query error");
             }
         } else {
-            echo 1;
+            echo 0;
             die("Query error");
         }
     } else {
         $insertNewTopicQuery = "INSERT INTO review(name,fk_subject) VALUES('$name','$subjectId')";
         $insertNewTopicResult = $connection->query($insertNewTopicQuery);
         if(!$insertNewTopicResult) {
-            echo 2;
+            echo 0;
             die("Query error");
         } else {
-            include("../controller/reviewTable.php");
+            include("../view/reviewTable.php");
         }
     }
 ?>

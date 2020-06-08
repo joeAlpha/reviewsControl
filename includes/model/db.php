@@ -6,9 +6,9 @@
         "study_control"
     );
     
-    if ($connection->connect_errno) {
-        console.log("Connect failed");
-        exit();
-    } 
+    // if ($connection->connect_errno) {
+    //     console.log("Connect failed");
+    //     exit();
+    // } 
 ?>
 
