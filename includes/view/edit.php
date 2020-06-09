@@ -31,7 +31,15 @@
 <div class="container p-4">
     <div class="row">
         <div class="col-md-6 mx-auto">
-            <div class="card card-body">
+            <div class="card card-body bg-dark">
+                <div class="text-center">
+                    <h2 class="card-title text-light mx-2">
+                        <i class="fas fa-edit text-light mb-4"></i>
+                        <br>
+                            Edit topic information 
+                        </h2> 
+                </div>
+
                 <form action="edit.php?id=<?php echo $_GET['id']?>" method="POST">
                     <div class="form-group">
                         <input placeholder="Name" type="text" name="name" id="name" class="form-control" value="<?php echo $name; ?>">
@@ -39,14 +47,23 @@
                     <div class="form-group">
                         <select value="<?php echo $fk_subject; ?>" class="form-control" id="subject" name="subject">
                             <option value="new">Choose subject</option>
-                            <?php
-                                $query = "SELECT * FROM subject";
-                                $result = $connection->query($query);
-                                while($row = $result->fetch_array(MYSQLI_ASSOC)) { ?>
-                                <option value="">
-                                    <?php echo $row['name'] ?>
-                                </option>;
-                                <?php } ?>
+                                <?php
+                                    $userId = $_SESSION['id'];
+                                    $query = 
+                                        "SELECT 
+                                            subject.id,
+                                            subject.name,
+                                            subject.user
+                                        FROM 
+                                            subject
+                                        WHERE
+                                            subject.user = '$userId'";
+                                    $result = $connection->query($query);
+                                    while($row = $result->fetch_array(MYSQLI_ASSOC)) { ?>
+                                    <option value="<?php echo $row['id'] ?>">
+                                        <?php echo $row['name'] ?>
+                                    </option>;
+                                    <?php } ?>
                         </select>
                     </div>
                     <div class="form-group">

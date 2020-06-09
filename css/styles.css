@@ -9,3 +9,18 @@
 .fa-user {
     font-size: 80px;
 }
+
+.card-title .fa-edit {
+    font-size: 80px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+}
+
+#alertContainer {
+    font-size: 20px;
+}

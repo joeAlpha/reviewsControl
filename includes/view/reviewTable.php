@@ -44,6 +44,7 @@
                             $subjectNameRow = $subjectNameResult->fetch_array(MYSQLI_ASSOC);
                             echo $subjectNameRow['name'];
                         ?>
+
                     </td>
                     <td>
                         <!-- * The result of an echo of PHP inside HTML must be bounded in '' 
@@ -54,7 +55,7 @@
                             '<?php echo $reviewRow['number_of_review']?>')" class="mx-2 btn btn-success">
                             <i class="fas fa-check"></i> Review 
                         </a>
-                        <a href="edit.php?id=<?php echo $reviewRow['review_id']?>" class=" mx-2 btn btn-warning">
+                        <a href="includes/view/edit.php?id=<?php echo $reviewRow['review_id']?>" class=" mx-2 btn btn-warning">
                             <i class="fas fa-edit"></i> Edit
                         </a>
                         <a onclick="deleteTopic('<?php echo $reviewRow['review_id']?>')" class="mx-2 btn btn-danger">

@@ -11,6 +11,17 @@
                 data: formData,
                 success: function(result) {
                     if (result != 0) {
+                        $("#alertContainer").html(
+                            "<div class='alert alert-success alert-dismissible fade show' role='alert'>" +
+                            '  <i class="fa fa-check"></i> Topic saved ' +
+                            ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
+                            '  <span aria-hidden="true">&times;</span> ' +
+                            '</button> ' +
+                            "</div>"
+                        );
+                        setTimeout(function() {
+                            $('#alertContainer').html(' '); 
+                        }, 3000);
                         $("#tableContainer").html(result);
                     } else {
                         alert("ERROR AT INSERT TOPIC");
@@ -32,6 +43,17 @@
                 // console.log("id: " + id);
                 if (result != 0) {
                     // Change the DOM
+                        $("#alertContainer").html(
+                            "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
+                            '  <i class="fa fa-check"></i> Topic deleted ' +
+                            ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
+                            '  <span aria-hidden="true">&times;</span> ' +
+                            '</button> ' +
+                            "</div>"
+                        );
+                        setTimeout(function() {
+                            $('#alertContainer').html(' '); 
+                        }, 3000);
                     $("#tableContainer").html(result);
                 } else {
                     alert("ERROR AT DELETE TOPIC");
@@ -55,7 +77,18 @@
 
             success: function(result) {
                 if (result != 0) {
-                    console.log("ok");
+                        $("#alertContainer").html(
+                            "<div class='alert alert-primary alert-dismissible fade show' role='alert'>" +
+                            '  <i class="fa fa-check"></i> Topic reviewed ' +
+                            ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
+                            '  <span aria-hidden="true">&times;</span> ' +
+                            '</button> ' +
+                            "</div>"
+                        );
+                        setTimeout(function() {
+                            $('#alertContainer').html(' '); 
+                        }, 3000);
+                    // setTimeout(  $("#alertContainer").html(' '), 2000 );
                     $("#tableContainer").html(result);
                 } else {
                     console.log("no ok");

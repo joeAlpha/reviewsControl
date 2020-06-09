@@ -5,13 +5,14 @@
     }
     include("includes/model/db.php");
     include("includes/view/header.php");
-    include("includes/view/nav.php"); 
+    /* include("includes/view/nav.php"); */ 
 ?>
+
 
 <div class="container-fluid p-4">
     <div class="row">
-        <div class="col-md-3 mt-4">
-            <div class="card bg-dark">
+        <div class="col-md-3">
+            <div class="card bg-dark h-100">
                 <div class="card-header text-center text-light">
                    Student panel
                 </div>
@@ -41,7 +42,7 @@
                         </div>
 
                         <div class="form-group">
-                            <select class="form-control" id="subject" name="subject">
+                            <select class="form-control custom-select" id="subject" name="subject">
                                 <?php
                                     $userId = $_SESSION['id'];
                                     $query = 
@@ -76,7 +77,9 @@
             </div>
         </div>
 
-        <div id="tableContainer" class="col-md-9 mt-4 table-responsive">
+        <br>
+        
+        <div id="tableContainer" class="col-md-9  table-responsive">
             <?php include("includes/view/reviewTable.php") ?>
         </div>
     </div>
