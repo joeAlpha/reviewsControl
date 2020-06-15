@@ -6,8 +6,16 @@
     cursor: pointer;
 }
 
-.fa-user {
-    font-size: 80px;
+.icon-small {
+    font-size: 16 px;
+}
+
+.icon-medium {
+    font-size: 32px;
+}
+
+.icon-big {
+    font-size: 64px;
 }
 
 .card-title .fa-edit {
@@ -26,5 +34,5 @@
 }
 
 .btn-font {
-    font-size: 24px;
+    font-size: 18px;
 }

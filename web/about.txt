@@ -1,0 +1,1 @@
+This folder holds files that are to be “downloaded” from your app. Stylesheets, javascripts and images used.

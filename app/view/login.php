@@ -4,7 +4,7 @@
         header("Location: ../../index.php");
     }
     include("../model/db.php");
-    include("header.php");
+	include("header.php");
 ?>
 
 <div class="mx-auto card w-25 bg-dark">

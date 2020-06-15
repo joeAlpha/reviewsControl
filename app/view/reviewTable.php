@@ -1,10 +1,10 @@
-
     <table class="table table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Subject</th>
+                <th scope="col">Retention</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -46,6 +46,48 @@
                         ?>
 
                     </td>
+
+                    <!-- Progress of mastering the topic -->
+                    <td>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style=
+                        "
+                            <?php
+                                $progress = $reviewRow['number_of_review']; 
+                                switch($progress) {
+                                    case 0: echo 'width: 10%'; break;
+                                    case 1: echo 'width: 20%'; break;
+                                    case 2: echo 'width: 30%'; break;
+                                    case 3: echo 'width: 40%'; break;
+                                    case 4: echo 'width: 50%'; break;
+                                    case 5: echo 'width: 60%'; break;
+                                    case 6: echo 'width: 70%'; break;
+                                    case 7: echo 'width: 80%'; break;
+                                    case 8: echo 'width: 90%'; break;
+                                    case 9: echo 'width: 100%'; break;
+                                }
+                            ?>
+                        "
+                             aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <?php 
+                                $progress = $reviewRow['number_of_review'];
+                                switch($progress) {
+                                    // case 0: echo '10%'; break;
+                                    case 1: echo '20%'; break;
+                                    case 2: echo '30%'; break;
+                                    case 3: echo '40%'; break;
+                                    case 4: echo '50%'; break;
+                                    case 5: echo '60%'; break;
+                                    case 6: echo '70%'; break;
+                                    case 7: echo '80%'; break;
+                                    case 8: echo '90%'; break;
+                                    case 9: echo '100%'; break;
+                                }
+                                ?>
+                        </div>
+                    </div>
+                    </td>
+
                     <td>
                         <!-- * The result of an echo of PHP inside HTML must be bounded in '' 
                                 in order to be manipulated as a string. * -->
@@ -55,7 +97,7 @@
                             '<?php echo $reviewRow['number_of_review']?>')" class="mx-2 btn btn-success">
                             <i class="fas fa-check"></i> Review 
                         </a>
-                        <a href="includes/view/edit.php?id=<?php echo $reviewRow['review_id']?>" class=" mx-2 btn btn-warning">
+                        <a href="app/view/edit.php?id=<?php echo $reviewRow['review_id']?>" class=" mx-2 btn btn-warning">
                             <i class="fas fa-edit"></i> Edit
                         </a>
                         <a onclick="deleteTopic('<?php echo $reviewRow['review_id']?>')" class="mx-2 btn btn-danger">
@@ -66,11 +108,6 @@
                 </tr>
 
             <?php } ?>
-            <?php 
-                // $connection->close(); 
-                // $reviewResult->close();
-                // $subjectNameResult->close();
-            ?>
 
         </tbody>
     </table>

@@ -4,10 +4,10 @@
         $('#userForm').submit(function(submitEvent) {
             submitEvent.preventDefault();
             var formData = $(this).serialize();
-            console.log(formData);
+            // console.log(formData);
             $.ajax({
                 type: "POST",
-                url: 'includes/model/save.php',
+                url: 'app/model/save.php',
                 data: formData,
                 success: function(result) {
                     if (result != 0) {
@@ -20,7 +20,7 @@
                             "</div>"
                         );
                         setTimeout(function() {
-                            $('#alertContainer').html(' '); 
+                            $('#alertContainer').html(' ');
                         }, 3000);
                         $("#tableContainer").html(result);
                     } else {
@@ -36,24 +36,24 @@
         id = "id=" + id;
         $.ajax({
             type: "POST",
-            url: "includes/model/delete.php", // API which will process the data
+            url: "app/model/delete.php", // API which will process the data
             data: id, // Data 
             // Actions after the event was processed sucessfully
             success: function(result) {
                 // console.log("id: " + id);
                 if (result != 0) {
                     // Change the DOM
-                        $("#alertContainer").html(
-                            "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
-                            '  <i class="fa fa-check"></i> Topic deleted ' +
-                            ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
-                            '  <span aria-hidden="true">&times;</span> ' +
-                            '</button> ' +
-                            "</div>"
-                        );
-                        setTimeout(function() {
-                            $('#alertContainer').html(' '); 
-                        }, 3000);
+                    $("#alertContainer").html(
+                        "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
+                        '  <i class="fa fa-check"></i> Topic deleted ' +
+                        ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
+                        '  <span aria-hidden="true">&times;</span> ' +
+                        '</button> ' +
+                        "</div>"
+                    );
+                    setTimeout(function() {
+                        $('#alertContainer').html(' ');
+                    }, 3000);
                     $("#tableContainer").html(result);
                 } else {
                     alert("ERROR AT DELETE TOPIC");
@@ -67,7 +67,7 @@
         // console.log(id + "," + date + "," + numberOfReview);
         $.ajax({
             type: "POST",
-            url: 'includes/model/complete.php',
+            url: 'app/model/complete.php',
             // Way to send multiple parameters to the API
             data: {
                 id: id,
@@ -77,17 +77,17 @@
 
             success: function(result) {
                 if (result != 0) {
-                        $("#alertContainer").html(
-                            "<div class='alert alert-primary alert-dismissible fade show' role='alert'>" +
-                            '  <i class="fa fa-check"></i> Topic reviewed ' +
-                            ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
-                            '  <span aria-hidden="true">&times;</span> ' +
-                            '</button> ' +
-                            "</div>"
-                        );
-                        setTimeout(function() {
-                            $('#alertContainer').html(' '); 
-                        }, 3000);
+                    $("#alertContainer").html(
+                        "<div class='alert alert-primary alert-dismissible fade show' role='alert'>" +
+                        '  <i class="fa fa-check"></i> Topic reviewed ' +
+                        ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
+                        '  <span aria-hidden="true">&times;</span> ' +
+                        '</button> ' +
+                        "</div>"
+                    );
+                    setTimeout(function() {
+                        $('#alertContainer').html(' ');
+                    }, 3000);
                     // setTimeout(  $("#alertContainer").html(' '), 2000 );
                     $("#tableContainer").html(result);
                 } else {
@@ -102,12 +102,12 @@
     function logout() {
         $.ajax({
             type: "POST",
-            url: "includes/model/logout.php",
+            url: "app/model/logout.php",
             success: function(result) {
                 if (!result) {
                     console.warn("Error at closing session");
                 } else {
-                    window.location.href = 'includes/view/login.php';
+                    window.location.href = 'app/view/login.php';
                 }
 
             }

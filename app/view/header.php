@@ -8,10 +8,12 @@
     
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="web/css/styles.css">
+        <!-- <link rel="stylesheet" href="../../css/styles.css"> -->
         <script src="https://kit.fontawesome.com/72bcd1da08.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="includes/controller/script.js"></script>
+        <!-- <script src="includes/controller/script.js"></script> -->
       </head>
-      <body class="bg-secondary">
+      <body class="">
+
 

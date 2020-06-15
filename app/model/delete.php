@@ -1,5 +1,5 @@
 <?php
-	include("db.php");
+	include("connection.php");
     // var_dump($_POST);
 	$id = $_POST['id'];
 	$query = "DELETE FROM review WHERE review_id = '$id'";

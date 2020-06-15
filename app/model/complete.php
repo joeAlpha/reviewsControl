@@ -1,50 +1,37 @@
 <?php
-    include("db.php");
-    // if(isset($_POST['id'])) {
-        // echo "<h1>ok</h1>";
-    // var_dump($_POST);
+    include("connection.php");
     $id = $_POST['id'];
     $oldDate = $_POST['date'];
     $numberOfReview = $_POST['numberOfReview'];
 
-
-    // Debug zone
-    // echo "After: " . $oldDate;
-    // $oldDate->add(new DateInterval('P1D'));
-    // echo "Before: " . $oldDate;
-
     // DateTime implements Unix timestamp internally for all operations,
     // therefore, the format is specified by the user.
     $newDate = new DateTime();
-    // echo $newDate->format('U = Y-m-d H:i:s');
     $newDate->setTimestamp(strtotime($oldDate));
-    // $newDate->add(new DateInterval('P10D'));
-    // echo $newDate->format('U = Y-m-d H:i:s');
 
-
+    /* Calculates the next review date based on the review
+    theory. */
     switch($numberOfReview) {
-        case 0: $newDate->add(new DateInterval('P1D')); 
+        case 0: $newDate->add(new DateInterval('P2D')); 
             break;
-        case 1: $newDate->add(new DateInterval('P2D')); 
+        case 1: $newDate->add(new DateInterval('P4D')); 
             break;
-        case 2: $newDate->add(new DateInterval('P4D')); 
+        case 2: $newDate->add(new DateInterval('P8D')); 
             break;
-        case 3: $newDate->add(new DateInterval('P8D')); 
+        case 3: $newDate->add(new DateInterval('P16D')); 
             break;
-        case 4: $newDate->add(new DateInterval('P16D')); 
+        case 4: $newDate->add(new DateInterval('P32D')); 
             break;
-        case 5: $newDate->add(new DateInterval('P32D')); 
+        case 5: $newDate->add(new DateInterval('P64D')); 
             break;
-        case 6: $newDate->add(new DateInterval('P64D')); 
+        case 6: $newDate->add(new DateInterval('P128D')); 
             break;
-        case 7: $newDate->add(new DateInterval('P128D')); 
+        case 7: $newDate->add(new DateInterval('P256D')); 
             break;
-        case 8: $newDate->add(new DateInterval('P256D')); 
+        case 8: $newDate->add(new DateInterval('P512D')); 
             break;
-        case 9: $newDate->add(new DateInterval('P512D')); 
-            break;
-        
     }
+    
     $numberOfReview += 1;
     $dateFormatted = $newDate->format('Y-m-d H:i:s');
     $updateReviewQuery = "UPDATE review SET review_date = '$dateFormatted', number_of_review = '$numberOfReview' WHERE review_id = '$id'";

@@ -1,5 +1,5 @@
 <?php
-    include("db.php");
+    include("connection.php");
     // var_dump($_POST);
     $name = $_POST['name'];
     $subjectId = $_POST['subject'];

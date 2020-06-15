@@ -1,0 +1,1 @@
+This is the folder where your magic will happen. Use the views, controllers and models folder for your app code.
