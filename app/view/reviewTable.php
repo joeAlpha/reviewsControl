@@ -1,4 +1,4 @@
-    <table class="table table-sm table-hover table-dark text-center">
+    <table class="table table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
             <tr>
@@ -97,12 +97,12 @@
                             '<?php echo $reviewRow['number_of_review']?>')" class="mx-2 btn btn-success">
                             <i class="fas fa-check mx-1"></i> Review 
                         </a>
-                        <a href="app/view/edit.php?id=<?php echo $reviewRow['review_id']?>" class=" mx-2 btn btn-warning">
+                       <!--  <a href="app/view/edit.php?id=<?php echo $reviewRow['review_id']?>" class=" mx-2 btn btn-warning">
                             <i class="fas fa-edit mx-1"></i> Edit
                         </a>
                         <a onclick="deleteTopic('<?php echo $reviewRow['review_id']?>')" class="mx-2 btn btn-danger">
                             <i class="fas fa-trash-alt mx-1"></i> Delete
-                        </a>
+                        </a> -->
 
                     </td>
                 </tr>
