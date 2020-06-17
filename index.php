@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="web/styles/styles.css">
 <script src="app/controller/newTopic.js"></script>
 
-<div class="container-fluid p-3">
+<div class="container-fluid p-3" id="mainSection">
     <div class="row">
         <div class="col-md-3">
             <div class="card bg-dark h-100">
