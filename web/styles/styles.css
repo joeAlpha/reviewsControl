@@ -1,5 +1,12 @@
-/* body {
-    background-image: url("https://images.pexels.com/photos/2763927/pexels-photo-2763927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap');
+body {
+    /* background-image: url("https://images.pexels.com/photos/2763927/pexels-photo-2763927.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* h1 {
+    font-family: 'Montserrat', sans-serif;
 } */
 
 .btn {

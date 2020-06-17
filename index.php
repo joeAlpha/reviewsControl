@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="web/styles/styles.css">
 <script src="app/controller/newTopic.js"></script>
 
-<div class="container-fluid p-4">
+<div class="container-fluid p-3">
     <div class="row">
         <div class="col-md-3">
             <div class="card bg-dark h-100">
@@ -23,6 +23,8 @@
                 
                 <div class="card-body">
                     <form id="userForm" action="" method="POST">
+
+                    <label for="name" class="text-white">Topic's name</label>
                         <div class="form-group">
                             <input placeholder="Topic name" type="text" name="name" id="name" class="form-control">
                         </div>
@@ -63,12 +65,11 @@
                             </select>
                             
                         </div> 
-
-                        
-                            
                         </div>
 
                             <div class="form-group">
+                            <label for="subject" class="text-white">Subject's topic</label>
+
                             <select class="form-control custom-select" id="subject" name="subject">
                                 <?php
                                     $userId = $_SESSION['id'];
@@ -93,14 +94,14 @@
 
                         <div class="form-group">
                             <input placeholder="New subject" type="text" name="newSubject" id="newSubject" class="form-control">
-                            <small id="newSubjectHelp" class="form-text text-white">If you want to register a new subject, type here its name, otherwise left it empty.</small>
+                            <!-- <small id="newSubjectHelp" class="form-text text-white">If you want to register a new subject, type here its name, otherwise left it empty.</small> -->
                         </div>
 
                         
 
                         <div class="form-group">
-                            <button class="btn btn-lg btn-success btn-block" type="submit" value="Save topic" name="saveTopic">
-                                <i class="fas fa-save"></i> Save topic
+                            <button class="btn btn-success btn-lg btn-block" type="submit" value="Save topic" name="saveTopic">
+                                <i class="fas fa-save icon-small mx-1"></i> Save
                             </button>
                         </div>
                     </form>
@@ -110,10 +111,16 @@
 
         <br>
         
-        <div id="tableContainer" class="col-md-9  table-responsive">
+        <div id="tableContainer" class="col-md-9 table-responsive">
             <?php include("app/view/reviewTable.php") ?>
         </div>
     </div>
 </div>
+
+<!-- <div class="fixed-bottom fixed-left my-2">
+<button class="btn btn-success btn-lg" type="submit" value="Save topic" name="saveTopic">
+                                <i class="fas fa-save icon-small mx-1"></i> Save
+</button>
+</div> -->
 
 <?php include("app/view/footer.php"); ?>

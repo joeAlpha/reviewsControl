@@ -13,7 +13,8 @@
         <script src="https://kit.fontawesome.com/72bcd1da08.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- <script src="includes/controller/script.js"></script> -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
       </head>
-      <body class="">
+      <body class="bg-secondary">
 
 

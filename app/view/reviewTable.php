@@ -1,4 +1,4 @@
-    <table class="table table-hover table-dark text-center">
+    <table class="table table-sm table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
             <tr>
@@ -35,8 +35,8 @@
 
                 while($reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC)) { ?>
                 <tr>
-                    <th scope="row"><?php echo $reviewRow['name']; ?></th>
-                    <td>
+                    <th class="align-middle" scope="row"><?php echo $reviewRow['name']; ?></th>
+                    <td class="align-middle">
                         <?php 
                             $subjectId = $reviewRow['fk_subject'];
                             $subjectNameQuery = "SELECT name FROM subject WHERE id = '$subjectId'";
@@ -48,7 +48,7 @@
                     </td>
 
                     <!-- Progress of mastering the topic -->
-                    <td>
+                    <td class="align-middle">
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped" role="progressbar" style=
                         "
@@ -88,20 +88,20 @@
                     </div>
                     </td>
 
-                    <td>
+                    <td class="align-middle">
                         <!-- * The result of an echo of PHP inside HTML must be bounded in '' 
                                 in order to be manipulated as a string. * -->
                         <a onclick="completeTopic(
                             '<?php echo $reviewRow['review_id']; ?>',
                             '<?php echo $reviewRow['review_date']; ?>',
                             '<?php echo $reviewRow['number_of_review']?>')" class="mx-2 btn btn-success">
-                            <i class="fas fa-check"></i> Review 
+                            <i class="fas fa-check mx-1"></i> Review 
                         </a>
                         <a href="app/view/edit.php?id=<?php echo $reviewRow['review_id']?>" class=" mx-2 btn btn-warning">
-                            <i class="fas fa-edit"></i> Edit
+                            <i class="fas fa-edit mx-1"></i> Edit
                         </a>
                         <a onclick="deleteTopic('<?php echo $reviewRow['review_id']?>')" class="mx-2 btn btn-danger">
-                            <i class="fas fa-trash-alt"></i> Delete
+                            <i class="fas fa-trash-alt mx-1"></i> Delete
                         </a>
 
                     </td>
