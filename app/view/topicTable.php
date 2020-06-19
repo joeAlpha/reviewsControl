@@ -1,3 +1,4 @@
+<script src="app/controller/editController.js"></script>
 <table class="table table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
@@ -96,13 +97,7 @@
                     <td class="align-middle">
                         <!-- * The result of an echo of PHP inside HTML must be bounded in '' 
                                 in order to be manipulated as a string. * -->
-                       <!--  <a onclick="completeTopic(
-                            '<?php echo $reviewRow['review_id']; ?>',
-                            '<?php echo $reviewRow['review_date']; ?>',
-                            '<?php echo $reviewRow['number_of_review']?>')" class="mx-2 btn btn-success">
-                            <i class="fas fa-check mx-1"></i> Review 
-                        </a> -->
-                        <a href="app/view/edit.php?id=<?php echo $reviewRow['review_id']?>" class=" mx-2 btn btn-warning">
+                        <a onclick="loadEditView('<?php echo $reviewRow['review_id']?>')" class=" mx-2 btn btn-warning">
                             <i class="fas fa-edit mx-1"></i> Edit
                         </a>
                         <a onclick="deleteTopic('<?php echo $reviewRow['review_id']?>')" class="mx-2 btn btn-danger">

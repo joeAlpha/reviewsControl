@@ -22,10 +22,10 @@
         
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a onclick="" class="dropdown-item" href="#"> <i class="fas fa-book"></i> Theory of review </a>
-          <a onclick="" class="dropdown-item" href="#"> <i class="fas fa-book"></i> User's guide </a>
-          <a onclick="" class="dropdown-item" href="#"> <i class="fas fa-code"></i> Documentation </a>
-          <a class="dropdown-item" href="#"> <i class="fas fa-book"></i> About </a>
+          <a onclick="" class="dropdown-item" href="#"> <i class="fas fa-book mr-2"></i> Theory of review </a>
+          <a onclick="" class="dropdown-item" href="#"> <i class="fas fa-book mr-2"></i> User's guide </a>
+          <a onclick="" class="dropdown-item" href="#"> <i class="fas fa-code mr-2"></i> Documentation </a>
+          <a class="dropdown-item" href="#"> <i class="fas fa-book mr-2"></i> About </a>
          
       </li> 
     </ul>
@@ -39,9 +39,9 @@
             <?php echo $_SESSION['username']; ?>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a onclick="logout()" class="dropdown-item" href="#"> <i class="fas fa-sign-out-alt"></i> Log out </a>
+            <a onclick="logout()" class="dropdown-item" href="#"> <i class="fas fa-sign-out-alt mr-2"></i> Log out </a>
             
-            <a class="dropdown-item" href="#"> <i class="fas fa-cog"></i> Settings </a>
+            <a class="dropdown-item" href="#"> <i class="fas fa-cog mr-2"></i> Settings </a>
             
           </li> 
         </ul>

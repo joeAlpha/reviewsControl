@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <form id="userForm" action="" method="POST">
 
-                    <label for="name" class="text-white">Topic's name</label>
+                    <label for="name" class="text-white"><b>Topic's name</b></label>
                         <div class="form-group">
                             <input placeholder="Topic name" type="text" name="name" id="name" class="form-control">
                         </div>
@@ -68,7 +68,7 @@
                         </div>
 
                             <div class="form-group">
-                            <label for="subject" class="text-white">Subject's topic</label>
+                            <label for="subject" class="text-white"><b>Subject's topic</b></label>
 
                             <select class="form-control custom-select" id="subject" name="subject">
                                 <?php

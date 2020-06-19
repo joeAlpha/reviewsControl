@@ -1,11 +1,9 @@
 <?php
     include("header.php");
     include("../model/connection.php");
-    include("nav.php"); 
 
-
-	if(isset($_GET['id'])) {
-		$id = $_GET['id'];
+	if(isset($_POST['id'])) {
+		$id = $_POST['id'];
 		$query = "SELECT * FROM review WHERE review_id = '$id'";
 		$result = $connection->query($query);
 		if($result->num_rows == 1) {
@@ -103,7 +101,7 @@
 
                     <!-- Buttons -->
                     <div class="row form-group mt-5">
-                            <a class="form-control w-25 mx-auto btn btn-warning" type="submit" value="Cancel" name="cancel">
+                            <a onclick="cancelEdit()" class="form-control w-25 mx-auto btn btn-warning" type="submit" value="Cancel" name="cancel">
                                 <i class="fa fa-ban" aria-hidden="true"></i> Cancel
                             </a>
 
