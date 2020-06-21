@@ -1,5 +1,5 @@
 <?php
-    include("header.php");
+    /* include("header.php"); */
     include("../model/connection.php");
 
 	if(isset($_POST['id'])) {
@@ -19,9 +19,8 @@
     } 
 ?>
 
-<div class="container p-4">
-    <div class="row">
-        <div class="col-md-6 mx-auto">
+<div class="container p-4 w-50">
+        <div class="mx-auto">
             <div class="card card-body bg-dark">
                 <div class="text-center">
                     <h2 class="card-title text-light mx-2">
@@ -40,7 +39,7 @@
 
                     <!-- Date -->
                     <div class="form-group">
-                        <select value="<?php echo $subject; ?>" class="form-control" id="subject" name="subject">
+                        <select value="<?php echo $subject; ?>" class="form-control custom-select" id="subject" name="subject">
                                 <?php
                                     $userId = $_COOKIE['id'];
                                     $query = 
@@ -102,20 +101,18 @@
                     <!-- Buttons -->
                     <div class="row form-group mt-5">
                             <a onclick="cancelEdit()" class="form-control w-25 mx-auto btn btn-warning" type="submit" value="Cancel" name="cancel">
-                                <i class="fa fa-ban" aria-hidden="true"></i> Cancel
+                                <i class="fa fa-ban mx-2" aria-hidden="true"></i> Cancel
                             </a>
 
-                            <a onclick="saveEdition()" class="form-control w-25 mx-auto btn btn-success " type="submit" value="Save" name="save">
-                                <i class="fa fa-save" aria-hidden="true"></i> Save
+                            <a onclick="saveEdition()" class="text-light form-control w-25 mx-auto btn btn-success " type="submit" value="Save" name="save">
+                                <i class="fa fa-save mx-2" aria-hidden="true"></i> Save
                             </a>
                     </div>
 
                 </form>
             </div>
         </div>
-    </div>
 </div>
 
 <script src="../controller/saveEdition.js"></script>
 
-<?php include("footer.php"); ?>

@@ -97,7 +97,7 @@
                     <td class="align-middle">
                         <!-- * The result of an echo of PHP inside HTML must be bounded in '' 
                                 in order to be manipulated as a string. * -->
-                        <a onclick="loadEditView('<?php echo $reviewRow['review_id']?>')" class=" mx-2 btn btn-warning">
+                        <a onclick="loadEditView('<?php echo $reviewRow['review_id']?>')" class="text-dark mx-2 btn btn-warning">
                             <i class="fas fa-edit mx-1"></i> Edit
                         </a>
                         <a onclick="deleteTopic('<?php echo $reviewRow['review_id']?>')" class="mx-2 btn btn-danger">

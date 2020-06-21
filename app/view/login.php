@@ -8,6 +8,7 @@
 ?>
 
 <link rel="stylesheet" href="../../web/styles/styles.css">
+<script src="../controller/loginController.js"></script>
 <div class="container-fluid row p-4">
 	<div class="container col text-center bg-dark p-4">
 		<i class="fas fa-book-open text-white icon-big"></i>
@@ -31,7 +32,7 @@
 			</div>
 
 			<div class="card-body">
-				<form method="POST" action="../model/loginCheck.php">
+				<form method="" action="" id="loginForm">
 					<div class="form-group">
 						<input type="text" class="form-control" name="user" id="user" placeholder="Username/e-mail">
 					</div>
@@ -47,7 +48,7 @@
 							Create account
 						</button>
 
-						<button type="submit" class="mx-2 btn btn-success">
+						<button onclick="checkLogin()" type="submit" class="mx-2 btn btn-success">
 							<i class="fas fa-sign-in-alt"></i> Login
 						</button>
 					</div>
