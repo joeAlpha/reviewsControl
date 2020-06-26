@@ -1,5 +1,5 @@
 <footer class="footer">
-    <div id="alertContainer" class="w-75 mx-auto mt-2 text-center"></div>
+   
 </footer>
  <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

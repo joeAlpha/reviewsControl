@@ -2,8 +2,8 @@
    $connection = new mysqli(
         "localhost",
         "root",
-        "arzeus1998",
-        "study_control"
+        "",
+        "review_control"
     );
     
     // if ($connection->connect_errno) {

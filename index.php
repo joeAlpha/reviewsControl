@@ -9,11 +9,12 @@
 ?>
 
 <link rel="stylesheet" href="web/styles/styles.css">
-<script src="app/controller/newTopic.js"></script>
+
+
 
 <div class="container-fluid p-3" id="mainSection">
     <div class="row">
-        <div class="col-md-3">
+        <div id="topicMaker" class="col-md-3">
             <div class="card bg-dark h-100">
                 <div class="card-header text-center text-light">
                 <i class="fas fa-book-open text-light icon-big my-2"></i>
@@ -30,28 +31,27 @@
                         </div>
 
                     <!-- Date -->
-                    <label for="" class="text-white">Date for next review</label>
+                    <!-- <label for="" class="text-white">Date for next review</label> -->
                     <!-- <small id="newSubjectHelp" class="form-text text-white">If you want to register a new subject, type here its name, otherwise left it empty.</small> -->
-                    <div class="form-row form-group">
+                   <!--  <div class="form-row form-group">
                         <div class="col">
-                        <select class="form-control custom-select col" id="year" name="year">
-                            <?php
-                                echo 'ok';
+                          <select class="form-control custom-select col" id="year" name="year">
+                              <?php
+                                // echo 'ok';
                                 for($i = date('o'); $i > 1970; $i--) { ?>
-                                    <option value="<?php echo $i; ?>" <?php if(date('Y', strtotime($date)) == $i) { echo 'selected';}; ?> ><?php echo $i; ?></option>;
+                                    <option value="<?php echo $i; ?>" <?php if(date('Y', strtotime($i)) == $i) { echo 'selected';}; ?> ><?php echo $i; ?></option>
                                 <?php } ?>
-                        </select>
+                          </select>
                         </div>
 
                         <div class="col">
-
                             <select class="form-control custom-select col" id="month" name="month">
                                 <?php
                             // $months = array(1 => 'Enero', 2 => 'Febrero', 3 => 'Marzo', 4 => 'Abril', 5 => 'Mayo', 6 => 'Junio', 7 => 'Julio', 8 => 'Agosto', 9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre');
                             $months = array(1 => 'January', 2 => 'February', 3 => 'March', 4 => 'April', 5 => 'May', 6 => 'June', 7 => 'July', 8 => 'August', 9 => 'September', 10 => 'October', 11 => 'November', 12 => 'December');
                             
                             for($i = 12; $i > 0; $i--) { ?>
-                                <option value="<?php echo $months[$i]; ?>" <?php if(date('m', strtotime($date)) == $i) { echo 'selected';}; ?> ><?php echo $months[$i]; ?></option>;
+                                <option value="<?php echo $months[$i]; ?>" <?php if(date('m', strtotime($i)) == $i) { echo 'selected';}; ?> ><?php echo $months[$i]; ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -60,12 +60,13 @@
                             <select class="form-control custom-select col" id="day" name="day">
                                 <?php
                                 for($i = 31; $i > 0; $i--) { ?>
-                                    <option value="<?php echo $i; ?>" <?php if(date('d', strtotime($date)) == $i) { echo 'selected';}; ?> ><?php echo $i; ?></option>;
+                                    <option value="<?php echo $i; ?>" <?php if(date('d', strtotime($i)) == $i) { echo 'selected';}; ?> ><?php echo $i; ?></option>
                                     <?php } ?>
                             </select>
                             
                         </div> 
-                        </div>
+
+                    </div> -->
 
                             <div class="form-group">
                             <label for="subject" class="text-white"><b>Subject's topic</b></label>
@@ -122,5 +123,10 @@
                                 <i class="fas fa-save icon-small mx-1"></i> Save
 </button>
 </div> -->
+
+<script src="app/controller/reviewController.js"></script>
+<script src="app/controller/restoreController.js"></script>
+<script src="app/controller/completeController.js"></script>
+<script src="app/controller/topicsController.js"></script>
 
 <?php include("app/view/footer.php"); ?>

@@ -8,7 +8,6 @@
     if($_POST['newSubject']) {
         session_start();
         $userId = $_SESSION['id'];
-        /* echo "USER ID:" . $_SESSION['username'] . " ]"; */
         $newSubjectName = $_POST['newSubject'];
         $insertNewSubjectQuery = "INSERT INTO subject(name,user) VALUES('$newSubjectName','$userId')"; 
         $insertNewSubjectResult = $connection->query($insertNewSubjectQuery);

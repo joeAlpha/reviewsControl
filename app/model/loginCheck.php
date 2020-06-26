@@ -19,13 +19,16 @@
             $_SESSION['username'] = $data['name']; 
             $_SESSION['password'] = $data['password'];
             setcookie("id", $data['id'], time() + (86400 * 30), "/"); 
-            header('Location: ../../index.php');
+            echo 0;
+            // header('Location: ../../index.php');
         } else {
+            echo 1;/* 
             echo "Error de credenciales ...";
-            echo "<meta http-equiv = 'Refresh' content='3; url = ../view/login.php'>";
+            echo "<meta http-equiv = 'Refresh' content='3; url = ../view/login.php'>"; */
         }
     } else {
-        echo "Campos sin rellenar ...";
-        echo "<meta http-equiv = 'Refresh' content='3; url = ../view/login.php'>";
+        echo 2;
+        /* echo "Campos sin rellenar ...";
+        echo "<meta http-equiv = 'Refresh' content='3; url = ../view/login.php'>"; */
     }
 ?>

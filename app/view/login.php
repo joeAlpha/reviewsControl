@@ -3,7 +3,7 @@
     if(isset($_SESSION['id'])) {
         header("Location: ../../index.php");
     }
-    include("../model/db.php");
+    include("../model/connection.php");
 	include("header.php");
 ?>
 
@@ -21,6 +21,7 @@
 	</div>
 
 	<div class="container col text-center">
+		<div class="m-auto w-75" id="alertContainer"></div>
 		<div class="card bg-dark m-auto w-75">
 			<div class="card-header">
 				<i class="fas fa-sign-in-alt text-white icon-big"></i>
@@ -32,7 +33,7 @@
 			</div>
 
 			<div class="card-body">
-				<form method="" action="" id="loginForm">
+				<form method="POST" action="" id="loginForm">
 					<div class="form-group">
 						<input type="text" class="form-control" name="user" id="user" placeholder="Username/e-mail">
 					</div>

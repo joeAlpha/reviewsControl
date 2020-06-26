@@ -1,10 +1,10 @@
-    <table class="table table-hover table-dark text-center">
+    <table class="rounded table table-sm table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Subject</th>
-                <th scope="col">Retention</th>
+                <th scope="col"># Reviews</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -27,7 +27,7 @@
                     WHERE 
                         review.fk_subject = subject.id AND 
                         subject.user = '$userId' AND 
-                        review.review_date = curdate()";    
+                        review.review_date <= curdate()";    
                 $reviewResult = $connection->query($reviewQuery);
                 if(!$reviewResult) {
                     echo "Error in query to get user's reviews";
@@ -35,7 +35,14 @@
 
                 while($reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC)) { ?>
                 <tr>
-                    <th class="align-middle" scope="row"><?php echo $reviewRow['name']; ?></th>
+                    <th class="align-middle" scope="row">
+                        <?php
+                            if(date('d', strtotime($reviewRow['review_date'])) < date('d')) {
+                                echo '<i class="fas fa-exclamation-triangle mr-3 text-warning"></i>';
+                            }
+                            echo $reviewRow['name']; 
+                        ?>
+                    </th>
                     <td class="align-middle">
                         <?php 
                             $subjectId = $reviewRow['fk_subject'];
@@ -73,15 +80,15 @@
                                 $progress = $reviewRow['number_of_review'];
                                 switch($progress) {
                                     // case 0: echo '10%'; break;
-                                    case 1: echo '20%'; break;
-                                    case 2: echo '30%'; break;
-                                    case 3: echo '40%'; break;
-                                    case 4: echo '50%'; break;
-                                    case 5: echo '60%'; break;
-                                    case 6: echo '70%'; break;
-                                    case 7: echo '80%'; break;
-                                    case 8: echo '90%'; break;
-                                    case 9: echo '100%'; break;
+                                    case 1: echo '2'; break;
+                                    case 2: echo '3'; break;
+                                    case 3: echo '4'; break;
+                                    case 4: echo '5'; break;
+                                    case 5: echo '6'; break;
+                                    case 6: echo '7'; break;
+                                    case 7: echo '8'; break;
+                                    case 8: echo '9'; break;
+                                    case 9: echo '10'; break;
                                 }
                                 ?>
                         </div>
@@ -97,6 +104,18 @@
                             '<?php echo $reviewRow['number_of_review']?>')" class="mx-2 btn btn-success">
                             <i class="fas fa-check mx-1"></i> Review 
                         </a>
+
+                        <a onclick="restoreTopicStatus('<?php echo $reviewRow['review_id']; ?>', 'reviewTable')" class="
+                        <?php
+                            if(date('d', strtotime($reviewRow['review_date'])) == date('d')) {
+                                echo 'd-none';
+                            }
+                        ?>
+                         text-light mx-2 btn btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                            <i class="fas fa-redo-alt mx-1"></i> Restore
+                        </a>
+                    
+                        
                        <!--  <a href="app/view/edit.php?id=<?php echo $reviewRow['review_id']?>" class=" mx-2 btn btn-warning">
                             <i class="fas fa-edit mx-1"></i> Edit
                         </a>
@@ -108,7 +127,7 @@
                 </tr>
 
             <?php } ?>
-        <nav aria-label="Page navigation example">
+<!--         <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center">
             <li class="page-item disabled">
               <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -120,8 +139,9 @@
               <a class="page-link" href="#">Next</a>
             </li>
           </ul>
-        </nav>
+        </nav> -->
 
         </tbody>
 
     </table>
+    <div id="alertContainer" class="mx-auto mt-2 text-center"></div>
