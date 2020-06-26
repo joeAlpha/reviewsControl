@@ -1,6 +1,4 @@
 <!-- <link rel="stylesheet" href="web/styles/styles.css"> -->
-<script src="app/controller/getAllTopicsController.js"></script>
-<script src="app/controller/loadSubjectsController.js"></script>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a onclick="reload()" class="navbar-brand" href=""><i class="fas fa-home text-light icon-medium mr-1"></i></a>

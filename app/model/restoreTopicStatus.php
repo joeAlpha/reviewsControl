@@ -9,10 +9,10 @@
     $restoreTopicStatusResult = $connection->query($restoreTopicStatusQuery);
     if($restoreTopicStatusResult) {
         if($origin == 'reviewTable') {
-            echo 'origin -> reviewTable';
+            // echo 'origin -> reviewTable';
             include('../view/reviewTable.php');
         } else {
-            echo 'origin -> topicTable';
+            // echo 'origin -> topicTable';
             include('../view/topicTable.php');
         }
     } else {

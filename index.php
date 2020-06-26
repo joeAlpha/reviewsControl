@@ -128,5 +128,9 @@
 <script src="app/controller/restoreController.js"></script>
 <script src="app/controller/completeController.js"></script>
 <script src="app/controller/topicsController.js"></script>
+<script src="app/controller/editController.js"></script>
+<script src="app/controller/getAllTopicsController.js"></script>
+<script src="app/controller/loadSubjectsController.js"></script>
+<script src="app/controller/saveEditionController.js"></script>
 
 <?php include("app/view/footer.php"); ?>

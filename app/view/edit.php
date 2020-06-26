@@ -114,5 +114,4 @@
         </div>
 </div>
 
-<script src="../controller/saveEdition.js"></script>
 
