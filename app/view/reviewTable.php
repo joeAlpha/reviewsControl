@@ -37,7 +37,7 @@
                 <tr>
                     <th class="align-middle" scope="row">
                         <?php
-                            if(date('d', strtotime($reviewRow['review_date'])) < date('d')) {
+                            if(date('Y-m-d', strtotime($reviewRow['review_date'])) < date('Y-m-d')) {
                                 echo '<i class="fas fa-exclamation-triangle mr-3 text-warning"></i>';
                             }
                             echo $reviewRow['name']; 
@@ -107,7 +107,7 @@
 
                         <a onclick="restoreTopicStatus('<?php echo $reviewRow['review_id']; ?>', 'reviewTable')" class="
                         <?php
-                            if(date('d', strtotime($reviewRow['review_date'])) == date('d')) {
+                            if(date('Y-m-d', strtotime($reviewRow['review_date'])) >= date('Y-m-d')) {
                                 echo 'd-none';
                             }
                         ?>
@@ -144,4 +144,4 @@
         </tbody>
 
     </table>
-    <div id="alertContainer" class="mx-auto mt-2 text-center"></div>
+    <div id="reviewAlerts" class="mx-auto mt-2 text-center"></div>

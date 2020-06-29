@@ -41,7 +41,7 @@
                 <tr>
                     <th class="align-middle" scope="row">
                         <?php 
-                            if(date('d', strtotime($reviewRow['review_date'])) < date('d')) {
+                            if(date('Y-m-d',strtotime($reviewRow['review_date'])) < date('Y-m-d')) {
                                 echo '<i class="fas fa-exclamation-triangle mr-3 text-warning"></i>';
                             }
                             echo $reviewRow['name']; 
@@ -111,7 +111,7 @@
                         </a>
                         <a onclick="restoreTopicStatus('<?php echo $reviewRow['review_id']?>', 'topicTable')" class="
                         <?php
-                            if(date('d', strtotime($reviewRow['review_date'])) >= date('d')) {
+                            if(date('Y-m-d', strtotime($reviewRow['review_date'])) >= date('Y-m-d')) {
                                 echo 'd-none';
                             }
                         ?>
@@ -129,4 +129,17 @@
 
         </tbody>
     </table>
+    <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
     <div id="topicAlert" class="mx-auto mt-2 text-center"></div>

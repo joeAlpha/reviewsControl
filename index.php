@@ -132,5 +132,6 @@
 <script src="app/controller/getAllTopicsController.js"></script>
 <script src="app/controller/loadSubjectsController.js"></script>
 <script src="app/controller/saveEditionController.js"></script>
+<script src="app/controller/deleteController.js"></script>
 
 <?php include("app/view/footer.php"); ?>
