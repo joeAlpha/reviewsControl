@@ -1,5 +1,4 @@
 <?php
-    /* include("header.php"); */
     include("../model/connection.php");
 
 	if(isset($_POST['id'])) {
@@ -104,7 +103,7 @@
                                 <i class="fa fa-ban mx-2" aria-hidden="true"></i> Cancel
                             </a>
 
-                            <a onclick="saveEdition()" class="text-light form-control w-25 mx-auto btn btn-success " type="submit" value="Save" name="save">
+                            <a onclick="saveEdition('<?php echo $_POST['id']; ?>')" class="text-light form-control w-25 mx-auto btn btn-success " type="submit" value="Save" name="save">
                                 <i class="fa fa-save mx-2" aria-hidden="true"></i> Save
                             </a>
                     </div>
