@@ -1,4 +1,4 @@
-    <table class="rounded table table-sm table-hover table-dark text-center">
+    <table class="rounded table table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
             <tr>
@@ -10,7 +10,7 @@
         </thead>
 
         <!-- The topic data area, main content of the table. -->
-        <tbody>
+        <tbody id="reviewTableBody">
             <?php
                 // var_dump($_COOKIE['id']);
                 $userId = $_COOKIE['id']; // possible fail after ajax petition
@@ -29,11 +29,11 @@
                         subject.user = '$userId' AND 
                         review.review_date <= curdate()";    
                 $reviewResult = $connection->query($reviewQuery);
-                if(!$reviewResult) {
-                    echo "Error in query to get user's reviews";
-                }
-
-                while($reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC)) { ?>
+      
+                $TOPICS_PER_PAGE = 8; 
+                /* for($i = 0; $i < $TOPICS_PER_PAGE; $i++) {
+                    $reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC); */
+                while($reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC)) {  ?>
                 <tr>
                     <th class="align-middle" scope="row">
                         <?php
@@ -144,4 +144,24 @@
         </tbody>
 
     </table>
+
+    <nav aria-label="Page navigation example" class="<?php if($reviewResult->num_rows <= $TOPICS_PER_PAGE) echo 'd-none'; ?>">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+
+    <?php
+        $numberOfPages = ($reviewResult->num_rows / $TOPICS_PER_PAGE) + 1;
+        for($i = 1; $i <= $numberOfPages; $i++) {
+            echo '<li class="page-item"> <a class="page-link" onclick="getPage(' . ($TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1) . ')">' . $i . '</a></li>';
+        }
+    ?>
+
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+    </nav>
+
     <div id="reviewAlerts" class="mx-auto mt-2 text-center"></div>

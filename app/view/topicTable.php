@@ -1,7 +1,7 @@
 <!-- <script src="app/controller/topicsController.js"></script> -->
 <!-- <script src="app/controller/restoreController.js"></script> -->
 
-<table class="rounded table table-sm table-hover table-dark text-center">
+<table class="rounded table table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
             <tr class="">
@@ -129,6 +129,7 @@
 
         </tbody>
     </table>
+
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item disabled">
@@ -141,5 +142,6 @@
       <a class="page-link" href="#">Next</a>
     </li>
   </ul>
-</nav>
+    </nav>
+
     <div id="topicAlert" class="mx-auto mt-2 text-center"></div>
