@@ -1,6 +1,6 @@
 <?php
     include("connection.php");
-    $pageNumber = $_POST['pageNumber'];
+    // $pageNumber = $_POST['index'];
     $userId = $_COOKIE['id'];
     $getPageQuery = 
         "SELECT 
@@ -16,7 +16,7 @@
             review.review_date <= curdate()";
         
         $getPageResult = $connection->query($getPageQuery);
-        if($getPageResult) {
-            
-        }
+        $allTopics = $getPageResult->fetch_array(MYSQLI_ASSOC);
+        if($getPageResult) return $allTopics;
+        else echo 0;
 ?>

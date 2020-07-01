@@ -30,7 +30,8 @@
                         review.review_date <= curdate()";    
                 $reviewResult = $connection->query($reviewQuery);
       
-                $TOPICS_PER_PAGE = 8; 
+                $allTopicsForToday = $reviewResult->fetch_array(MYSQLI_ASSOC);
+                $TOPICS_PER_PAGE = 8;
 
                 // Si el numero de topicos rebasa el limite, imprimir n por secciones,
                 // caso contrario imprimir todos.
@@ -122,52 +123,28 @@
                          text-light mx-2 btn btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                             <i class="fas fa-redo-alt mx-1"></i> Restore
                         </a>
-                    
-                        
-                       <!--  <a href="app/view/edit.php?id=<?php echo $reviewRow['review_id']?>" class=" mx-2 btn btn-warning">
-                            <i class="fas fa-edit mx-1"></i> Edit
-                        </a>
-                        <a onclick="deleteTopic('<?php echo $reviewRow['review_id']?>')" class="mx-2 btn btn-danger">
-                            <i class="fas fa-trash-alt mx-1"></i> Delete
-                        </a> -->
-
                     </td>
                 </tr>
-
             <?php } ?>
-<!--         <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav> -->
-
         </tbody>
-
     </table>
 
+    <!-- Pagination nav -->
     <nav aria-label="Page navigation example" class="<?php if($reviewResult->num_rows <= $TOPICS_PER_PAGE) echo 'd-none'; ?>">
   <ul class="pagination justify-content-center">
     <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">Previous</a>
+      <a class="page-link mx-1" href="#" tabindex="-1">Previous</a>
     </li>
 
     <?php
         $numberOfPages = ($reviewResult->num_rows / $TOPICS_PER_PAGE) + 1;
         for($i = 1; $i <= $numberOfPages; $i++) {
-            echo '<li class="page-item"> <a class="page-link" onclick="getPage(' . ($TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1) . ')">' . $i . '</a></li>';
+            echo '<li class="page-item"> <a class="page-link btn mx-1" onclick="getPage(' . ($TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1) . ')">' . $i . '</a></li>';
         }
     ?>
 
     <li class="page-item">
-      <a class="page-link" href="#">Next</a>
+      <a class="page-link mx-1" href="#">Next</a>
     </li>
   </ul>
     </nav>
