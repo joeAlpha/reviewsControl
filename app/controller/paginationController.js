@@ -1,4 +1,4 @@
-let showPage = (pageNumber) => {
+let showPage = (pageNumber, topics) => {
     $.ajax({
         type: "POST",
         url: 'app/model/getTopicsPage.php',

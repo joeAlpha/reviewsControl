@@ -31,9 +31,17 @@
                 $reviewResult = $connection->query($reviewQuery);
       
                 $TOPICS_PER_PAGE = 8; 
-                /* for($i = 0; $i < $TOPICS_PER_PAGE; $i++) {
-                    $reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC); */
-                while($reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC)) {  ?>
+
+                // Si el numero de topicos rebasa el limite, imprimir n por secciones,
+                // caso contrario imprimir todos.
+                $counterFlag = 0;
+                while($reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC)) {  
+                    $counterFlag++;
+                    if($counterFlag == $TOPICS_PER_PAGE) break;
+                // $reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC);
+                // for($i = 0; $i < $reviewResult->num_rows; $i++) {  
+            ?>
+
                 <tr>
                     <th class="align-middle" scope="row">
                         <?php
@@ -57,7 +65,7 @@
                     <!-- Progress of mastering the topic -->
                     <td class="align-middle">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped" role="progressbar" style=
+                        <div class="progress-bar" role="progressbar" style=
                         "
                             <?php
                                 $progress = $reviewRow['number_of_review']; 
@@ -90,7 +98,7 @@
                                     case 8: echo '9'; break;
                                     case 9: echo '10'; break;
                                 }
-                                ?>
+                            ?>
                         </div>
                     </div>
                     </td>
