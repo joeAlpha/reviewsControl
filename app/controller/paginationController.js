@@ -1,11 +1,11 @@
 let getPage = (index, allTopics) => {
     // index = pageNumber;
-    console.log(allTopics);
+    console.log(JSON.parse(allTopics));
     
-    $.ajax({
+/*     $.ajax({
         type: "POST",
         // url: 'app/model/getTopicsPage.php',
-        data: userId,
+        // data: userId,
         success: function(result) {
             if (result != 0) {
                 // JSON is used to transfer data between client-server
@@ -20,16 +20,16 @@ let getPage = (index, allTopics) => {
 
                 // Check if exists the table container, if not, creates it.
                 // This case is used when the user is on edit section.
-               /*  if($("#tableContainer").length < 1) {
+                if($("#tableContainer").length < 1) {
                     $("#mainSection")
                         .html('<div id="tableContainer" class="p-4 table-responsive"></div>');
                 }
                 $("#tableContainer").attr("class", "p-4 table-responsive");
-                $("#mainSection #tableContainer").html(result); */
+                $("#mainSection #tableContainer").html(result);
             } else {
                 alert("getAllTopicsController says: error at load all topics.");
             }
 
         }
-    });
+    }); */
 }

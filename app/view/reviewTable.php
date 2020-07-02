@@ -32,7 +32,7 @@
                 
                 $allTopics = [];
                 while($row = $reviewResult->fetch_array(MYSQLI_ASSOC)) {
-                    $allTopics[] = $row;
+                    array_push($allTopics, $row);
                 }
       
                 // This causes an issue to show all topics to be reviewed
@@ -145,7 +145,7 @@
     <?php
         $numberOfPages = ($reviewResult->num_rows / $TOPICS_PER_PAGE) + 1;
         for($i = 1; $i <= $numberOfPages; $i++) {
-            echo '<li class="page-item"> <a class="page-link btn mx-1" onclick="getPage(' . ($TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1) . ', ' . json_encode($allTopics) . ')">' . $i . '</a></li>';
+            echo '<li class="page-item"> <a class="page-link btn mx-1" onclick="getPage(' . ($TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1) . ', ' . (json_encode($allTopics)) . ')">' . $i . '</a></li>';
             // echo '<li class="page-item"> <a class="page-link btn mx-1" onclick="getPage(' . ($TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1) . ')">' . $i . '</a></li>';
         }
     ?>
