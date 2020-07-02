@@ -29,16 +29,22 @@
                         subject.user = '$userId' AND 
                         review.review_date <= curdate()";    
                 $reviewResult = $connection->query($reviewQuery);
+                
+                $allTopics = [];
+                while($row = $reviewResult->fetch_array(MYSQLI_ASSOC)) {
+                    $allTopics[] = $row;
+                }
       
-                $allTopicsForToday = $reviewResult->fetch_array(MYSQLI_ASSOC);
+                // This causes an issue to show all topics to be reviewed
+                // $allTopicsForToday = $reviewResult->fetch_array(MYSQLI_ASSOC);
                 $TOPICS_PER_PAGE = 8;
 
                 // Si el numero de topicos rebasa el limite, imprimir n por secciones,
                 // caso contrario imprimir todos.
                 $counterFlag = 0;
-                while($reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC)) {  
-                    $counterFlag++;
-                    if($counterFlag == $TOPICS_PER_PAGE) break;
+                for($i = 0; $i < $TOPICS_PER_PAGE; $i++) {  
+                    // $counterFlag++;
+                    // if($counterFlag == $TOPICS_PER_PAGE) break;
                 // $reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC);
                 // for($i = 0; $i < $reviewResult->num_rows; $i++) {  
             ?>
@@ -46,15 +52,15 @@
                 <tr>
                     <th class="align-middle" scope="row">
                         <?php
-                            if(date('Y-m-d', strtotime($reviewRow['review_date'])) < date('Y-m-d')) {
+                            if(date('Y-m-d', strtotime($allTopics[$i]['review_date'])) < date('Y-m-d')) {
                                 echo '<i class="fas fa-exclamation-triangle mr-3 text-warning"></i>';
                             }
-                            echo $reviewRow['name']; 
+                            echo $allTopics[$i]['name']; 
                         ?>
                     </th>
                     <td class="align-middle">
                         <?php 
-                            $subjectId = $reviewRow['fk_subject'];
+                            $subjectId = $allTopics[$i]['fk_subject'];
                             $subjectNameQuery = "SELECT name FROM subject WHERE id = '$subjectId'";
                             $subjectNameResult = $connection->query($subjectNameQuery);
                             $subjectNameRow = $subjectNameResult->fetch_array(MYSQLI_ASSOC);
@@ -69,7 +75,7 @@
                         <div class="progress-bar" role="progressbar" style=
                         "
                             <?php
-                                $progress = $reviewRow['number_of_review']; 
+                                $progress = $allTopics[$i]['number_of_review']; 
                                 switch($progress) {
                                     case 0: echo 'width: 10%'; break;
                                     case 1: echo 'width: 20%'; break;
@@ -86,7 +92,7 @@
                         "
                              aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                             <?php 
-                                $progress = $reviewRow['number_of_review'];
+                                $progress = $allTopics[$i]['number_of_review'];
                                 switch($progress) {
                                     // case 0: echo '10%'; break;
                                     case 1: echo '2'; break;
@@ -108,15 +114,15 @@
                         <!-- * The result of an echo of PHP inside HTML must be bounded in '' 
                                 in order to be manipulated as a string. * -->
                         <a onclick="completeTopic(
-                            '<?php echo $reviewRow['review_id']; ?>',
-                            '<?php echo $reviewRow['review_date']; ?>',
-                            '<?php echo $reviewRow['number_of_review']?>')" class="mx-2 btn btn-success">
+                            '<?php echo $allTopics[$i]['review_id']; ?>',
+                            '<?php echo $allTopics[$i]['review_date']; ?>',
+                            '<?php echo $allTopics[$i]['number_of_review']?>')" class="mx-2 btn btn-success">
                             <i class="fas fa-check mx-1"></i> Review 
                         </a>
 
-                        <a onclick="restoreTopicStatus('<?php echo $reviewRow['review_id']; ?>', 'reviewTable')" class="
+                        <a onclick="restoreTopicStatus('<?php echo $allTopics[$i]['review_id']; ?>', 'reviewTable')" class="
                         <?php
-                            if(date('Y-m-d', strtotime($reviewRow['review_date'])) >= date('Y-m-d')) {
+                            if(date('Y-m-d', strtotime($allTopics[$i]['review_date'])) >= date('Y-m-d')) {
                                 echo 'd-none';
                             }
                         ?>
@@ -139,7 +145,8 @@
     <?php
         $numberOfPages = ($reviewResult->num_rows / $TOPICS_PER_PAGE) + 1;
         for($i = 1; $i <= $numberOfPages; $i++) {
-            echo '<li class="page-item"> <a class="page-link btn mx-1" onclick="getPage(' . ($TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1) . ')">' . $i . '</a></li>';
+            echo '<li class="page-item"> <a class="page-link btn mx-1" onclick="getPage(' . ($TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1) . ', ' . json_encode($allTopics) . ')">' . $i . '</a></li>';
+            // echo '<li class="page-item"> <a class="page-link btn mx-1" onclick="getPage(' . ($TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1) . ')">' . $i . '</a></li>';
         }
     ?>
 
