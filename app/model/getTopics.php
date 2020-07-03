@@ -1,9 +1,11 @@
 <?php
-    // NOT USED
+    /* 
+        Retrieves and return all topics from DB.
+    */
     include("connection.php");
-    if(isset($_POST['userId']) && isset($_POST['index'])) {
+    if(isset($_POST['userId'])) {
         $userId = $_POST['userId'];
-        $getPageQuery = 
+        $getTopicsQuery = 
             "SELECT 
                 review.review_id,
                 review.name,
@@ -16,14 +18,10 @@
                 subject.user = '$userId' AND 
                 review.review_date <= curdate()";
         
-        $getPageResult = $connection->query($getPageQuery);
-        // echo $getPageResult->num_rows;
-        // $allTopics = $getPageResult->fetch_array(MYSQLI_ASSOC);
-        if($getPageResult) {
+        $getTopicsResult = $connection->query($getTopicsQuery);
+        if($getTopicsResult) {
             $allTopics = [];
-            while($row = $getPageResult->fetch_array(MYSQLI_ASSOC)) {
-                $allTopics[] = $row;
-            }
+            while($row = $getTopicsResult->fetch_array(MYSQLI_ASSOC)) $allTopics[] = $row;
             echo json_encode($allTopics);
         } else {
             echo 0;
