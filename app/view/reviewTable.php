@@ -157,7 +157,8 @@
                     class="page-link btn mx-1 bg-dark text-light border-0" 
                     onclick="getPage(
                         '<?php echo $TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1; ?>',
-                        '<?php echo $_COOKIE['id']; ?>'
+                        '<?php echo $_COOKIE['id']; ?>',
+                        '<?php echo $TOPICS_PER_PAGE ?>'
                     )" 
                 >
                     <?php echo $i; ?>
