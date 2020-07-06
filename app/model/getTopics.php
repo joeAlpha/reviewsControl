@@ -23,10 +23,6 @@
             $allTopics = [];
             while($row = $getTopicsResult->fetch_array(MYSQLI_ASSOC)) $allTopics[] = $row;
             echo json_encode($allTopics);
-        } else {
-            echo 0;
-        }
-    } else {
-        echo "Parameters hasn't been received";
-    }
+        } else echo 0;
+    } else echo "Parameters hasn't been received";
 ?>

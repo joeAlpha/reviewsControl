@@ -15,14 +15,19 @@ let getPage = (index, id, topicsPerPage) => {
 
                 $("#reviewTableBody").html(function() {
                     for(let i = index; i < allTopics.length || i <= topicsPerPage; i++) {
+                        let subject;
+                        let subjectId = allTopics[i].fk_subject;
+                        // console.log(subjectId);
 
                         // Gets the subject's name
                         $.ajax({
                             type: "POST",
-                            url: 'app/model/getTopics.php',
-                            data: userId,
+                            url: 'app/model/findSubject.php',
+                            data: ("subjectId="+subjectId),
                             success: function(result) {
-                                if (result != 0) {}
+                                let subjectFound = JSON.parse(result)
+                                if (result != 0) console.log("Subject: " + subjectFound.name);
+                                else console.log('Response error on API -> [ findSubject ]');
                             }
                         });
 
