@@ -1,6 +1,5 @@
 /* Sends a request to retrieve all topics from
 a specific user */
-
 function getAllTopics() {
     $.ajax({
         type: "POST",

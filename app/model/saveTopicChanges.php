@@ -1,3 +1,5 @@
+<!-- Saves new data from a existing topic into DB -->
+
 <?php
     include("connection.php");
 

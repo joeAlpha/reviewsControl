@@ -1,3 +1,5 @@
+<!-- Cleans cookies and session for the logout request -->
+
 <?php 
 	// Destroy the session
 	session_start();

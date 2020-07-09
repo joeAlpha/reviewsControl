@@ -1,7 +1,7 @@
+<!-- Receives the information of a new topic from controller
+and register it into db. -->
+
 <?php
-    /* Receives the information of a new topic from controller
-    and register it into db.
-     */
 
     include("connection.php");
     // var_dump($_POST);

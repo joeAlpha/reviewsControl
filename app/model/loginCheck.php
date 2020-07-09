@@ -1,3 +1,4 @@
+<!-- Checks the rigth credentials for the login requests -->
 <?php
     include("connection.php");
 

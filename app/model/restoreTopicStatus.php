@@ -1,3 +1,6 @@
+<!-- Restore the next review date and the times of
+reviews for a specific topic. -->
+
 <?php 
     include("connection.php");
     $id = $_POST['id'];
