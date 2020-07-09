@@ -1,3 +1,6 @@
+/* Sends a request to restore the progress
+ studied of a topic. */
+
 let restoreTopicStatus = (id, origin) => {
     $.ajax({
         type: "POST",

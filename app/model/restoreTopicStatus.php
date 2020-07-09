@@ -4,7 +4,7 @@
     $origin = $_POST['origin'];
     $restoreTopicStatusQuery = 
         "UPDATE review
-        SET review_date = curdate(), number_of_review = 0
+        SET review_date = ADDDATE(curdate(), INTERVAL 1 DAY), number_of_review = 0
         WHERE review_id = '$id'";
     $restoreTopicStatusResult = $connection->query($restoreTopicStatusQuery);
     if($restoreTopicStatusResult) {

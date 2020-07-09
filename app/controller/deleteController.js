@@ -1,3 +1,6 @@
+/* This controller send a request to
+delete a topic. */
+
 function deleteTopic(id) {
     id = "id=" + id;
     $.ajax({

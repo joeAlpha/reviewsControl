@@ -1,5 +1,5 @@
-    // After press 'Save topic'
-    $(document).ready(function(e) {
+/* Sends a request to save a new topic data. */
+$(document).ready(function(e) {
         /* console.log("ok"); */
         $('#userForm').submit(function(submitEvent) {
             submitEvent.preventDefault();
@@ -35,18 +35,3 @@
     
 
     
-
-    function logout() {
-        $.ajax({
-            type: "POST",
-            url: "app/model/logout.php",
-            success: function(result) {
-                if (!result) {
-                    console.warn("Error at closing session");
-                } else {
-                    window.location.href = 'app/view/login.php';
-                }
-
-            }
-        });
-    }

@@ -1,4 +1,8 @@
 <?php
+    /*  CANDIDATE TO BE DELETED
+        This module is used on pagination to retrieve the subject's names
+    */
+    
     include('connection.php');
     if(!isset($_POST['subjectId'])) echo "The subject id wasn't received!";
     else {
@@ -16,10 +20,6 @@
         else {
             $subjectFound = $findSubjectResult->fetch_array(MYSQLI_ASSOC);
             echo json_encode($subjectFound);
-           /*  $subjectFound = [];
-            while($row = $findSubjectQuery->fetch_array(MYSQLI_ASSOC)) $subjectFound[] = $row;
-            echo json_encode($subjectFound); */
-            // echo $findSubjectResult;
         }
     }
 ?>

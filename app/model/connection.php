@@ -1,3 +1,5 @@
+<!-- Set a reusable connection with the DB -->
+
 <?php
    $connection = new mysqli(
         "localhost",
@@ -5,10 +7,6 @@
         "",
         "review_control"
     );
-    
-    // if ($connection->connect_errno) {
-    //     console.log("Connect failed");
-    //     exit();
-    // } 
+
 ?>
 

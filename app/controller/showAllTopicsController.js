@@ -1,7 +1,10 @@
+/* Sends a request to retrieve all topics from
+a specific user */
+
 function getAllTopics() {
     $.ajax({
         type: "POST",
-        url: 'app/model/getAllTopics.php',
+        url: 'app/controller/getAllTopics.php',
         success: function(result) {
             if (result != 0) {
                 $("#mainSection #topicMaker").html(' ');

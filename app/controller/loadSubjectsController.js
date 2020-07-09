@@ -1,3 +1,6 @@
+/* Send a request to retrieve all subjects
+and then they are showed in the subjects managment
+view. */
 function loadSubjects() {
     $.ajax({
         type: "POST",

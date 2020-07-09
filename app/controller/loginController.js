@@ -1,9 +1,10 @@
+/* Sends a request to check the user and password, also
+manage the alerts for the login view. */
+
 $(document).ready(function(e) {
-    /* console.log("ok"); */
     $('#loginForm').submit(function(submitEvent) {
         submitEvent.preventDefault();
         var formData = $(this).serialize();
-        // console.log(formData);
         $.ajax({
             type: "POST",
             url: '../model/loginCheck.php',

@@ -1,3 +1,6 @@
+/* This controller calls the API and send the 
+data of a topic reviewed. */
+
 function completeTopic(id, date, numberOfReview) {
     // console.log(id + "," + date + "," + numberOfReview);
     $.ajax({

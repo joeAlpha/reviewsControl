@@ -1,3 +1,6 @@
+/* This controller calls and API to show in the
+main section the edit view without refresh the page. */
+
 function loadEditView(id) {
     // $('#mainSection').load('app/view/edit.php');
     id = 'id=' + id;

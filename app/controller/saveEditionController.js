@@ -1,6 +1,7 @@
+/* Sends a request to save new data in DB from a existing topic. */
+
 function saveEdition(id) {
     let formData = "id=" + id + "&" + $("#editForm").serialize();
-    // let topicId = id;
     console.log(`Data serialized: ${formData}`);
 
     $.ajax({

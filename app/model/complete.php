@@ -1,3 +1,6 @@
+<!-- CRITICAL: Calculates the next date for review the topic studied
+and increments the count of the times reviewed. -->
+
 <?php
     include("connection.php");
     $id = $_POST['id'];
@@ -43,9 +46,4 @@
     } else {
         include("../view/reviewTable.php");
     }
-    // } 
-    // else{
-    //     echo 1;
-    //     die("Id is not set");
-    // } 
 ?>

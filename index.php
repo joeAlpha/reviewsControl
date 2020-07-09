@@ -95,7 +95,6 @@
 
                         <div class="form-group">
                             <input placeholder="New subject" type="text" name="newSubject" id="newSubject" class="form-control">
-                            <!-- <small id="newSubjectHelp" class="form-text text-white">If you want to register a new subject, type here its name, otherwise left it empty.</small> -->
                         </div>
 
                         
@@ -118,21 +117,16 @@
     </div>
 </div>
 
-<!-- <div class="fixed-bottom fixed-left my-2">
-<button class="btn btn-success btn-lg" type="submit" value="Save topic" name="saveTopic">
-                                <i class="fas fa-save icon-small mx-1"></i> Save
-</button>
-</div> -->
-
+<!-- App controllers -->
 <script src="app/controller/reviewController.js"></script>
 <script src="app/controller/restoreController.js"></script>
 <script src="app/controller/completeController.js"></script>
-<script src="app/controller/topicsController.js"></script>
 <script src="app/controller/editController.js"></script>
-<script src="app/controller/getAllTopicsController.js"></script>
+<script src="app/controller/showAllTopicsController.js"></script>
 <script src="app/controller/loadSubjectsController.js"></script>
 <script src="app/controller/saveEditionController.js"></script>
 <script src="app/controller/deleteController.js"></script>
 <script src="app/controller/paginationController.js"></script>
+<script src="app/controller/logoutController.js"></script>
 
 <?php include("app/view/footer.php"); ?>
