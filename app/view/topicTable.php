@@ -1,5 +1,4 @@
-<!-- <script src="app/controller/topicsController.js"></script> -->
-<!-- <script src="app/controller/restoreController.js"></script> -->
+<!-- Topic managment view -->
 
 <table class="rounded table table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->

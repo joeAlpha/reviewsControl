@@ -1,3 +1,4 @@
+<!-- View of footer -->
 <footer class="footer">
    
 </footer>

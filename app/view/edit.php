@@ -1,3 +1,4 @@
+<!-- View of the edit topic -->
 <?php
     include("../model/connection.php");
 

@@ -1,3 +1,4 @@
+<!-- Header of page -->
 <!doctype html>
     <html lang="en">
       <head>

@@ -1,4 +1,4 @@
-<!-- <link rel="stylesheet" href="web/styles/styles.css"> -->
+<!-- Navigation bar view -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a onclick="reload()" class="navbar-brand" href=""><i class="fas fa-home text-light icon-medium mr-1"></i></a>

@@ -1,3 +1,4 @@
+<!-- Main view, the review of topics -->
     <table class="rounded table table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
