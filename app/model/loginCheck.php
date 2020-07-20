@@ -19,7 +19,15 @@
             $_SESSION['id'] = $data['id']; 
             $_SESSION['username'] = $data['name']; 
             $_SESSION['password'] = $data['password'];
-            setcookie("id", $data['id'], time() + (86400 * 30), "/"); 
+            // setcookie("id", $data['id'], time() + (86400 * 30), "/"); 
+            setcookie("id", $data['id'], [
+                'expires' => time() + 86400,
+                'path' => '/',
+                // 'domain' => 'domain.com',
+                'secure' => true,
+                'httponly' => true,
+                'samesite' => 'None',
+            ]); 
             echo 0;
             // header('Location: ../../index.php');
         } else {

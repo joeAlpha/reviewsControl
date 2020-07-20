@@ -1,6 +1,7 @@
 <?php
     /* 
-        Retrieves and return all topics from DB.
+        Purpose: Retrieves and return all topics from DB.
+        Used by: 
     */
     include("connection.php");
     if(isset($_POST['userId'])) {

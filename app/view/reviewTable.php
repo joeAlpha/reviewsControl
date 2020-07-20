@@ -159,7 +159,7 @@
                     onclick="getPage(
                         '<?php echo $TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1; ?>',
                         '<?php echo $_COOKIE['id']; ?>',
-                        '<?php echo $TOPICS_PER_PAGE ?>'
+                        '<?php echo $TOPICS_PER_PAGE; ?>'
                     )" 
                 >
                     <?php echo $i; ?>

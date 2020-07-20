@@ -1,17 +1,20 @@
 /* This controller sends a request for get a
 new set of topics correspondig to a some page index. */
 
-let getPage = (index, id, topicsPerPage) => {
-    let userId = 'userId=' + id;
+let getPage = (indexBegin, userId, topicsPerPage) => {
+    // let userId = 'userId=' + id;
     
     $.ajax({
         type: "POST",
-        url: 'app/model/getTopics.php',
-        data: userId,
+        // Before api call: getTopics.php
+        url: 'app/model/pagination.php',
+        data: {indexBegin, userId, topicsPerPage},
         success: function(result) {
             if (result != 0) {
+                $("#reviewTableBody").html(result);
+
                 // NOTE: JSON is used to transfer data between client-server
-                let allTopics = JSON.parse(result);
+                /* let allTopics = JSON.parse(result);
                 
                 $("#reviewTableBody").html(function() {
                     for(let i = index; i < allTopics.length || i <= topicsPerPage; i++) {
@@ -37,7 +40,7 @@ let getPage = (index, id, topicsPerPage) => {
                         // Puts the new topics of the page requested in the DOM
                         return `<tr><td>${allTopics[i].name}</td></tr>`;
                     }
-                });
+                }); */
             } else {
                 alert("getAllTopicsController says: error at load all topics.");
             }

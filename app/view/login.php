@@ -1,7 +1,7 @@
 <!-- Login view -->
 <?php 
 	session_start();
-    if(isset($_SESSION['id'])) {
+    if(isset($_COOKIE['id'])) {
         header("Location: ../../index.php");
     }
     include("../model/connection.php");
@@ -9,7 +9,6 @@
 ?>
 
 <link rel="stylesheet" href="../../web/styles/styles.css">
-<script src="../controller/loginController.js"></script>
 <div class="container-fluid row p-4">
 	<div class="container col text-center bg-dark p-4">
 		<i class="fas fa-book-open text-white icon-big"></i>
@@ -69,5 +68,6 @@
 
 </div>
 
+<script src="../controller/loginController.js"></script>
 
 <?php include("footer.php") ?>
