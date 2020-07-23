@@ -22,6 +22,7 @@
 
 	<div class="container col text-center">
 		<div class="m-auto w-75" id="alertContainer"></div>
+		
 		<div class="card bg-dark m-auto w-75">
 			<div class="card-header">
 				<i class="fas fa-sign-in-alt text-white icon-big"></i>

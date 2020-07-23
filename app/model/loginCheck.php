@@ -28,15 +28,22 @@
                 'httponly' => true,
                 'samesite' => 'None',
             ]); 
-            echo 0;
-            // header('Location: ../../index.php');
+            echo true;
+            // header("Location: ../../index.php");
+            // die();
         } else {
-            echo 1;/* 
-            echo "Error de credenciales ...";
+            // echo 1;
+            echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" .
+            '  <i class="fa fa-times"></i> The username or password is wrong ' .
+            "</div>";
+           /*  echo "Error de credenciales ...";
             echo "<meta http-equiv = 'Refresh' content='3; url = ../view/login.php'>"; */
         }
     } else {
-        echo 2;
+        // echo 2;
+        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" .
+        '  <i class="fa fa-times"></i> Fill all fields ' .
+        "</div>";
         /* echo "Campos sin rellenar ...";
         echo "<meta http-equiv = 'Refresh' content='3; url = ../view/login.php'>"; */
     }

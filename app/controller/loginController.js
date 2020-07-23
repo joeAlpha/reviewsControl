@@ -12,36 +12,35 @@ function checkLogin() {
             data: formData,
 
             success: function(result) {
-                if (result == 1) {
-                    $("#alertContainer").html(
-                        "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
-                        '  <i class="fa fa-times"></i> The username or password is wrong ' +
-                        "</div>"
-                    );
+                if(!result) {
+                    $("#alertContainer").html(result);
+                    setTimeout(function() {
+                        $('#alertContainer').html(' ');
+                    }, 3000);
+                } else {
+                    window.location.replace("../../index.php");
+                }
+                
+                /* if (result == 1) {
+                    $("#alertContainer").html(result);
                     setTimeout(function() {
                         $('#alertContainer').html(' ');
                     }, 3000);
 
-                    // #tableContainer ?
-                    // $("#tableContainer").html(result);
                 } else if (result == 2) {
-                    $("#alertContainer").html(
+                    $("#alertContainer").html(result);
                         "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
                         '  <i class="fa fa-times"></i> Fill al l fields ' +
                         "</div>"
-                    );
 
                     setTimeout(function() {
                         $('#alertContainer').html(' ');
                     }, 3000);
                 } else if (result == 0) {
-                    // NOTE: This isn't redirecting to index and
-                    // the problem can be the setting of cookie 
-                    //(samesite and secure)
-                    /* Or can be a problem with the script  */
+
                     console.log("Response received: " + result);
-                    // window.location.replace("../../index.php");
-                }
+                    window.location.replace("../../index.php");
+                } */
             }
             
         });
