@@ -8,10 +8,11 @@ per page values given by the controller of this API. -->
     if(isset($_POST['userId']) && 
         isset($_POST['topicsPerPage']) &&
         isset($_POST['indexBegin'])) {
+        // var_dump($_POST);
 
         $userId = $_POST['userId'];
         $topicsPerPage = $_POST['topicsPerPage'];
-        $indexBegin = $_POST['indexBegin'];
+        $indexBegin = $_POST['indexBegin']; // First index of page required
         $getTopicsQuery = 
             "SELECT 
                 review.review_id,
@@ -26,20 +27,24 @@ per page values given by the controller of this API. -->
                 review.fk_subject = subject.id AND 
                 subject.user = '$userId' AND 
                 review.review_date <= curdate()";    
+
+        // Returns a mysql_result object
         $getTopicsResult = $connection->query($getTopicsQuery);
         
         if($getTopicsResult) {
+            // var_dump($getTopicsResult);
             $htmlContent = ""; // Table which contains the new topics
             // $topics = [];
             // while($topic = $getTopicsResult->fetch_array(MYSQLI_ASSOC)) $topics = $topic;
             // var_dump(count($topics));
 
-            echo "Ok ----- ";
-            $limitFlag = 0;
-            $topic = $getTopicsResult->fetch_array(MYSQLI_BOTH);
-            for($i = $indexBegin; $limitFlag <= $topicsPerPage || $i < $topic->num_rows; $i++) {
-            // while($limitFlag < $topicsPerPage || ) {
-                switch($topic[$i]['number_of_review']) {
+            // echo "Ok ----- ";
+            $limitFlag = 0; // For know how many topics was displayed
+            // $topic = $getTopicsResult->fetch_array(MYSQLI_BOTH);
+            // var_dump($topic);
+            // for($i = $indexBegin; $limitFlag <= $topicsPerPage && $i < $getTopicsResult->num_rows; $i++) {
+            while($topic = $getTopicsResult->fetch_array(MYSQLI_BOTH)) {
+                switch($topic['number_of_review']) {
                     case 0: 
                         $progressBarWidth = 'width: 10%'; 
                         $progress = 1;
@@ -82,13 +87,13 @@ per page values given by the controller of this API. -->
                      break;
                 } 
 
-                if(date('Y-m-d', strtotime($topic[$i]['review_date'])) >= date('Y-m-d')) $showRestoreButton = 'd-none';
+                if(date('Y-m-d', strtotime($topic['review_date'])) >= date('Y-m-d')) $showRestoreButton = 'd-none';
                 else $showRestoreButton = '';
 
                 // Construction of each topic row
                 $htmlContent .= '
                     <tr>
-                        <td class="align-middle">' . $topic[$i]['name'] . '</td>
+                        <td class="align-middle">' . $topic['name'] . '</td>
                         <td class="align-middle">' . '[subject name]' . '</td>
                         <td class="align-middle"> 
                             <div class="progress">
@@ -98,13 +103,13 @@ per page values given by the controller of this API. -->
 
                         '<td class="align-middle">
                         <a onclick="completeTopic( ' .
-                            $topic[$i]['review_id'] . ', ' .
-                            $topic[$i]['review_date'] . ', ' .
-                            $topic[$i]['number_of_review'] . ')" class="mx-2 btn btn-success">
+                            $topic['review_id'] . ', ' .
+                            $topic['review_date'] . ', ' .
+                            $topic['number_of_review'] . ')" class="mx-2 btn btn-success">
                             <i class="fas fa-check mx-1"></i> Review 
                         </a>
 
-                        <a onclick="restoreTopicStatus(' . $topic[$i]['review_id'] . ', "reviewTable")" class=" ' .
+                        <a onclick="restoreTopicStatus(' . $topic['review_id'] . ', "reviewTable")" class=" ' .
                            $showRestoreButton . 
                         'text-light mx-2 btn btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                             <i class="fas fa-redo-alt mx-1"></i> Restore
@@ -117,6 +122,9 @@ per page values given by the controller of this API. -->
             
             echo $htmlContent;
         } else echo -2;
-    } else echo -1;
+    } else {
+        echo "Error: some variable of POST isn't defined -> " . var_dump($_POST);
+        echo -1;
+    } 
 
 ?>
