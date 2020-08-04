@@ -117,7 +117,7 @@
                         <a onclick="completeTopic(
                             '<?php echo $row['review_id']; ?>',
                             '<?php echo $row['review_date']; ?>',
-                            '<?php echo $row['number_of_review']?>')" class="mx-2 btn btn-success">
+                            '<?php echo $row['number_of_review']?>')" class="mx-2 btn btn-lg btn-success">
                             <i class="fas fa-check mx-1"></i> Review 
                         </a>
 
@@ -127,7 +127,7 @@
                                 echo 'd-none';
                             }
                         ?>
-                         text-light mx-2 btn btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                         text-light mx-2 btn btn-danger btn-lg" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                             <i class="fas fa-redo-alt mx-1"></i> Restore
                         </a>
                     </td>

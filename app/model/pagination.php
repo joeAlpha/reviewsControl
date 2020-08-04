@@ -105,13 +105,13 @@ per page values given by the controller of this API. -->
                         <a onclick="completeTopic( ' .
                             $topic['review_id'] . ', ' .
                             $topic['review_date'] . ', ' .
-                            $topic['number_of_review'] . ')" class="mx-2 btn btn-success">
+                            $topic['number_of_review'] . ')" class="mx-2 btn btn-lg btn-success">
                             <i class="fas fa-check mx-1"></i> Review 
                         </a>
 
                         <a onclick="restoreTopicStatus(' . $topic['review_id'] . ', "reviewTable")" class=" ' .
                            $showRestoreButton . 
-                        'text-light mx-2 btn btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                        'text-light mx-2 btn btn-lg btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                             <i class="fas fa-redo-alt mx-1"></i> Restore
                         </a>
                     </td>' .

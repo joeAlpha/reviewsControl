@@ -15,7 +15,11 @@ function checkLogin() {
                 if(result) {
                     window.location.replace("../../index.php");
                 } else {
-                    $("#alertContainer").html(result);
+                    $("#alertContainer").html(
+                        "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
+                        '  <i class="fa fa-times"></i> Bad credentials ' +
+                        "</div>"
+                    );
                     setTimeout(function() {
                         $('#alertContainer').html(' ');
                     }, 3000);

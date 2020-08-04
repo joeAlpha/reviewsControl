@@ -32,20 +32,18 @@
             // header("Location: ../../index.php");
             // die();
             echo true;
-        } else {
+        } else echo false;
             // echo 1;
-            echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" .
+            /* echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" .
             '  <i class="fa fa-times"></i> The username or password is wrong ' .
-            "</div>";
+            "</div>"; */
            /*  echo "Error de credenciales ...";
             echo "<meta http-equiv = 'Refresh' content='3; url = ../view/login.php'>"; */
-        }
-    } else {
+    } /* else {
         // echo 2;
         echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" .
         '  <i class="fa fa-times"></i> Fill all fields ' .
         "</div>";
-        /* echo "Campos sin rellenar ...";
-        echo "<meta http-equiv = 'Refresh' content='3; url = ../view/login.php'>"; */
-    }
+      
+    } */
 ?>
