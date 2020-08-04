@@ -21,7 +21,6 @@
 	</div>
 
 	<div class="container col text-center">
-		<div class="m-auto w-75" id="alertContainer"></div>
 		
 		<div class="card bg-dark m-auto w-75">
 			<div class="card-header">
@@ -45,25 +44,26 @@
 					</div>
 
 					<div class="text-center">
-						<button type="button" onClick="document.location.href='registro.php'" class="btn mx-2 	btn-primary">
+						<button type="button" onClick="document.location.href='registro.php'" class="btn btn-lg mx-2 	btn-primary">
 							<i class="fas fa-user-plus"></i>
 							Create account
 						</button>
 
-						<button onclick="checkLogin()" type="submit" class="mx-2 btn btn-success">
+						<button onclick="checkLogin()" type="submit" class="mx-2 btn btn-success btn-lg">
 							<i class="fas fa-sign-in-alt"></i> Login
 						</button>
 					</div>
 
 					<div class="container my-4">
 						<a href="" class="badge badge-info">
-							I forget my password
+							I forgot my password
 						</a>
 					</div>
 					
 				</form>
 			</div>
 		</div>
+		<div class="m-auto pt-3 w-75" id="alertContainer"></div>
 	</div>
 
 

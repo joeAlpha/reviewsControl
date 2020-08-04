@@ -12,13 +12,13 @@ function checkLogin() {
             data: formData,
 
             success: function(result) {
-                if(!result) {
+                if(result) {
+                    window.location.replace("../../index.php");
+                } else {
                     $("#alertContainer").html(result);
                     setTimeout(function() {
                         $('#alertContainer').html(' ');
                     }, 3000);
-                } else {
-                    window.location.replace("../../index.php");
                 }
                 
                 /* if (result == 1) {
