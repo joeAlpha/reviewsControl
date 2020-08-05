@@ -15,10 +15,9 @@ function completeTopic(id, date, numberOfReview) {
 
         success: function(result) {
             if (result != 0) {
-                 $("#tableContainer").html(result);
+                $("#tableContainer").html(result);
 
-                $("#tableContainer #alertContainer").html(
-                    "<div class='alert alert-primary alert-dismissible fade show' role='alert'>" +
+                $("#reviewAlert").html("<div class='alert alert-primary alert-dismissible fade show' role='alert'>" +
                     '  <i class="fa fa-check"></i> Topic reviewed ' +
                     ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
                     '  <span aria-hidden="true">&times;</span> ' +
@@ -26,13 +25,10 @@ function completeTopic(id, date, numberOfReview) {
                     "</div>"
                 );
                 setTimeout(function() {
-                    $('#tableContainer #alertContainer').html(' ');
+                    $('#reviewAlert').html(' ');
                 }, 3000);
-
-               
             } else {
-                console.log("no ok");
-                alert("ERROR AT COMPLETE THE TOPIC");
+                console.error("Error in complete API");
             }
 
         }

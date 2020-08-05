@@ -1,4 +1,6 @@
 <!-- Main view, the review of topics -->
+<div id="reviewAlert" class="mx-auto mt-2 text-center"></div>
+
     <table class="rounded table table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
@@ -175,4 +177,3 @@
   </ul>
     </nav>
 
-    <div id="reviewAlerts" class="mx-auto mt-2 text-center"></div>
