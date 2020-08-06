@@ -34,12 +34,16 @@ per page values given by the controller of this API. -->
             $htmlContent = ""; // Table which contains the new topics
             $limitFlag = 0; // For know how many topics was displayed
             
+            // If the limit of topics per page was reached, this
+            // flag helps to stop loading extra topics in the table.
+            // $stopRender = false;
+            
             // Indicates when was reached the start index of the page requested,
             // this helps to avoid show all topics starting from the first one.
             $startFlag = 0; 
             while($topic = $getTopicsResult->fetch_array(MYSQLI_BOTH)) {
                 $startFlag++;
-                if($startFlag >= ($indexBegin - 1)) {
+                if($startFlag >= ($indexBegin - 1) && $limitFlag < $topicsPerPage) {
                     switch($topic['number_of_review']) {
                         case 0: 
                             $progressBarWidth = 'width: 10%'; 

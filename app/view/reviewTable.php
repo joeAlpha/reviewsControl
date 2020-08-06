@@ -40,14 +40,14 @@
       
                 // This causes an issue to show all topics to be reviewed
                 // $allTopicsForToday = $reviewResult->fetch_array(MYSQLI_ASSOC);
-                $TOPICS_PER_PAGE = 8;
+                $TOPICS_PER_PAGE = 6;
 
                 // Si el numero de topicos rebasa el limite, imprimir n por secciones,
                 // caso contrario imprimir todos.
                 $counterFlag = 0;
                 while($row = $reviewResult->fetch_array(MYSQLI_ASSOC)) {
+                    if($counterFlag >= $TOPICS_PER_PAGE) break;
                     $counterFlag++;
-                    if($counterFlag == $TOPICS_PER_PAGE) break;
                 // $reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC);
                 // for($i = 0; $i < $reviewResult->num_rows; $i++) {  
             ?>
