@@ -12,8 +12,9 @@ function deleteTopic(id) {
             // console.log("id: " + id);
             if (result != 0) {
                 // Change the DOM
-                $("#tableContainer #alertContainer").html(
-                    "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
+                $("#tableContainer").html(result);
+
+                $("#tableContainer #topicAlert").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
                     '  <i class="fa fa-check"></i> Topic deleted ' +
                     ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
                     '  <span aria-hidden="true">&times;</span> ' +
@@ -21,9 +22,8 @@ function deleteTopic(id) {
                     "</div>"
                 );
                 setTimeout(function() {
-                    $('#alertContainer').html(' ');
+                    $('#tableContainer #topicAlert').html(' ');
                 }, 3000);
-                $("#tableContainer").html(result);
             } else {
                 alert("ERROR AT DELETE TOPIC");
             }

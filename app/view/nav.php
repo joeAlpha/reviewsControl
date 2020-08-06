@@ -9,7 +9,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
   
 
-    <a onclick="getAllTopics()" class="btn btn-primary mx-2" href="#" id="" role="button" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-book-open text-light icon-small mr-1"></i> Reviews </a>
+    <a onclick="getAllTopics()" class="btn btn-primary mx-2" href="#" id="" role="button" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-book-open text-light icon-small mr-1"></i> Topics </a>
     
     <a onclick="loadSubjects()" class="btn btn-primary mx-2" href="#" id="" role="button" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-book text-light icon-small mr-1"></i> Subjects </a>
 

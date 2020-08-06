@@ -21,7 +21,7 @@ let restoreTopicStatus = (id, origin) => {
                         );
                     
                         setTimeout(function() {
-                            $('#tableContainer #alertContainer').html(' ');
+                            $('#tableContainer #reviewAlert').html(' ');
                         }, 3000);
                 } else {
                     $("#tableContainer #topicAlert").html(

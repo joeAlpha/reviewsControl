@@ -19,15 +19,15 @@
                 <div class="card-header text-center text-light">
                 <i class="fas fa-book-open text-light icon-big my-2"></i>
                 <br>
-                   Review's register
+                   Topic's register
                 </div>
                 
                 <div class="card-body">
                     <form id="userForm" action="" method="POST">
 
-                    <label for="name" class="text-white"><b>Topic's name</b></label>
+                    <!-- <label for="name" class="text-white"><b>Topic's name</b></label> -->
                         <div class="form-group">
-                            <input placeholder="Topic name" type="text" name="name" id="name" class="form-control">
+                            <input placeholder="Topic's name" type="text" name="name" id="name" class="form-control">
                         </div>
 
                     <!-- Date -->
@@ -69,9 +69,10 @@
                     </div> -->
 
                             <div class="form-group">
-                            <label for="subject" class="text-white"><b>Subject's topic</b></label>
+                            <!-- <label for="subject" class="text-white"><b>Subject's topic</b></label> -->
 
                             <select class="form-control custom-select" id="subject" name="subject">
+                            <option value="">( Choose a subject )</option>
                                 <?php
                                     $userId = $_SESSION['id'];
                                     $query = 
@@ -94,7 +95,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input placeholder="New subject" type="text" name="newSubject" id="newSubject" class="form-control">
+                            <input placeholder="Or type a new subject" type="text" name="newSubject" id="newSubject" class="form-control">
                         </div>
 
                         

@@ -86,11 +86,23 @@ per page values given by the controller of this API. -->
                     if(date('Y-m-d', strtotime($topic['review_date'])) >= date('Y-m-d')) $showRestoreButton = 'd-none';
                     else $showRestoreButton = '';
 
+                    // Getting the subject
+                    // $subjectId = $_POST['subjectId'];
+                    // echo $subjectId;
+            
+                    $subjectQuery = 
+                        "SELECT name
+                        FROM subject
+                        WHERE '$topic[fk_subject]' = subject.id";    
+                    $subjectResult = $connection->query($subjectQuery);
+                    if($subjectResult) $subject = $subjectResult->fetch_array(MYSQLI_ASSOC);
+                    else echo "QUERY ERROR";
+
                     // Construction of each topic row
                     $htmlContent .= '
                         <tr>
                         <td class="align-middle">' . $topic['name'] . '</td>
-                        <td class="align-middle">' . '[subject name]' . '</td>
+                        <td class="align-middle">' . $subject['name'] . '</td>
                         <td class="align-middle"> 
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" style="' . $progressBarWidth . '"' . 
