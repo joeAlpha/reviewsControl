@@ -106,7 +106,7 @@ per page values given by the controller of this API. -->
                         <td class="align-middle"> 
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" style="' . $progressBarWidth . '"' . 
-                                'aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">' .
+                                'aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">' . $progress .
                         '</td>' .
 
                         '<td class="align-middle">
