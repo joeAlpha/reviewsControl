@@ -15,7 +15,7 @@
         </thead>
 
         <!-- The topic data area, main content of the table. -->
-        <tbody>
+        <tbody id="topicTableBody">
 			<?php
 				include('../model/connection.php');
                 // var_dump($_COOKIE['id']);
@@ -38,7 +38,14 @@
                     echo "Error in query to get user's reviews";
                 }
 
+                $counterFlag = 0;
+                $TOPICS_PER_PAGE = 6;
+
                 while($reviewRow = $reviewResult->fetch_array(MYSQLI_ASSOC)) { ?>
+                <?php
+                    if($counterFlag >= $TOPICS_PER_PAGE) break;
+                    $counterFlag++;
+                ?>
                 <tr>
                     <th class="align-middle" scope="row">
                         <?php 
@@ -131,5 +138,8 @@
         </tbody>
     </table>
     
-    <?php include("pagination.php"); ?>
+    <?php 
+        $origin = basename(__FILE__, ".php"); // Getting the name of file know the origin of pagination request
+        include("pagination.php"); 
+    ?>
 

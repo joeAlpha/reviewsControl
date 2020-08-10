@@ -43,7 +43,7 @@ per page values given by the controller of this API. -->
             $startFlag = 0; 
             while($topic = $getTopicsResult->fetch_array(MYSQLI_BOTH)) {
                 $startFlag++;
-                if($startFlag >= ($indexBegin - 1) && $limitFlag < $topicsPerPage) {
+                if($startFlag >= ($indexBegin) && $limitFlag < $topicsPerPage) {
                     switch($topic['number_of_review']) {
                         case 0: 
                             $progressBarWidth = 'width: 10%'; 

@@ -138,4 +138,7 @@
         </tbody>
     </table>
 
-<?php include("pagination.php"); ?>
+<?php 
+    $origin = basename(__FILE__, ".php"); // Getting the name of file know the origin of pagination request
+    include("pagination.php"); 
+?>

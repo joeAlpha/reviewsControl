@@ -1,5 +1,9 @@
 
     <!-- Pagination nav -->
+    <?php 
+      $TOPICS_PER_PAGE = 6; 
+      // echo $origin;
+    ?>
     <nav aria-label="Page navigation example" class="<?php if($reviewResult->num_rows <= $TOPICS_PER_PAGE) echo 'd-none'; ?>">
   <ul class="pagination justify-content-center">
     <li class="page-item disabled">
@@ -22,7 +26,8 @@
                     onclick="getPage(
                         '<?php echo $TOPICS_PER_PAGE * $i - $TOPICS_PER_PAGE + 1; ?>',
                         '<?php echo $_COOKIE['id']; ?>',
-                        '<?php echo $TOPICS_PER_PAGE; ?>'
+                        '<?php echo $TOPICS_PER_PAGE; ?>',
+                        '<?php echo $origin; ?>'
                     )" 
                 >
                     <?php echo $i; ?>
