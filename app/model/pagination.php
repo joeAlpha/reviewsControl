@@ -1,6 +1,8 @@
 <!-- Retrieves all topics from DB and select 
 a subgroup of them based on the index and topics 
-per page values given by the controller of this API. -->
+per page values given by the controller of this API
+and then renders a result which will be showed in the
+page by the controller that calls this API. -->
 
 <?php
     include("connection.php");
@@ -27,8 +29,7 @@ per page values given by the controller of this API. -->
                 subject
             WHERE 
                 review.fk_subject = subject.id AND 
-                subject.user = '$userId' AND 
-                review.review_date <= curdate()";    
+                subject.user = '$userId'";    
 
         $getTopicsResult = $connection->query($getTopicsQuery);
         
@@ -44,8 +45,11 @@ per page values given by the controller of this API. -->
             // this helps to avoid show all topics starting from the first one.
             $startFlag = 0; 
             while($topic = $getTopicsResult->fetch_array(MYSQLI_BOTH)) {
+                
                 $startFlag++;
-                if($startFlag >= ($indexBegin) && $limitFlag < $topicsPerPage) {
+                // Checks for start and stop the render
+                if($startFlag >= ($indexBegin-1) && $limitFlag < $topicsPerPage) {
+
                     switch($topic['number_of_review']) {
                         case 0: 
                             $progressBarWidth = 'width: 10%'; 
@@ -89,13 +93,11 @@ per page values given by the controller of this API. -->
                          break;
                     } 
 
+                    // TODO: Possible variable duplicate beneath
                     if(date('Y-m-d', strtotime($topic['review_date'])) >= date('Y-m-d')) $showRestoreButton = 'd-none';
                     else $showRestoreButton = '';
 
-                    // Getting the subject
-                    // $subjectId = $_POST['subjectId'];
-                    // echo $subjectId;
-            
+                    // Getting the name of each topic's subject
                     $subjectQuery = 
                         "SELECT name
                         FROM subject
