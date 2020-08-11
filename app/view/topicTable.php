@@ -108,7 +108,7 @@
 					</td>
 					
 					<td class="align-middle">
-						<?php echo $reviewRow['review_date']; ?>
+						<?php echo date('Y-m-d', strtotime($reviewRow['review_date'])); ?>
 					</td>
 
                     <td class="align-middle">

@@ -7,12 +7,14 @@ per page values given by the controller of this API. -->
     // var_dump($_POST);
     if(isset($_POST['userId']) && 
         isset($_POST['topicsPerPage']) &&
-        isset($_POST['indexBegin'])) {
+        isset($_POST['indexBegin']) &&
+        isset($_POST['originRequest'])) {
         // var_dump($_POST);
 
         $userId = $_POST['userId'];
         $topicsPerPage = $_POST['topicsPerPage'];
         $indexBegin = $_POST['indexBegin']; // First index of page required
+        $originRequest = $_POST['originRequest']; 
         $getTopicsQuery = 
             "SELECT 
                 review.review_id,
@@ -102,10 +104,53 @@ per page values given by the controller of this API. -->
                     if($subjectResult) $subject = $subjectResult->fetch_array(MYSQLI_ASSOC);
                     else echo "QUERY ERROR";
 
-                    // Construction of each topic row
+                    // TODO: REPLACE ALL IF OF RENDER BY SWITCH INSTEAD
+                    // Rendering the outdated icon
+                    if(date('Y-m-d', strtotime($topic['review_date'])) < date('Y-m-d')) {
+                        $outdated = '<i class="fas fa-exclamation-triangle mr-3 text-warning"></i>';
+                        $outdatedButton = '';
+                    } else {
+                        $outdated = '';
+                        $outdatedButton = 'd-none';
+                    }
+
+                    // Rendering the date based on the origin request
+                    if($originRequest == "topicTable") {
+                        $nextReviewDate =  '<td class="align-middle">' . date('Y-m-d', strtotime($topic['review_date'])) . '</td>';
+                    } else $nextReviewDate = '';
+
+                    // Rendering buttons
+                    if($originRequest == "topicTable") {
+                        $actions =  '<td class="align-middle">
+                        <a onclick="loadEditView(' . $topic['review_id'] . ')" class="text-dark mx-2 btn btn-lg btn-warning">
+                            <i class="fas fa-edit mx-1"></i> Edit
+                        </a>
+
+                        <a onclick="restoreTopicStatus(' . $topic['review_id'] . ', topicTable)" class=" ' . $outdatedButton .
+                        'text-light mx-2 btn btn-lg btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                            <i class="fas fa-redo-alt mx-1"></i> Reset progress
+                        </a>
+                        <a onclick="deleteTopic('. $topic['review_id'] . ')" class="mx-2 btn btn-lg btn-danger">
+                            <i class="fas fa-trash-alt mx-1"></i> Delete
+                        </a>
+
+                    </td>';
+                    } else $actions = '<td class="align-middle">
+                    
+                    <a onclick="completeTopic( ' . $topic['review_id'] . ',' . $topic['review_date'] . ',' . $topic['number_of_review'] .')" class="mx-2 btn btn-lg btn-success">
+                        <i class="fas fa-check mx-1"></i> Review 
+                    </a>
+
+                    <a onclick="restoreTopicStatus(' . $topic['review_id'] . ', reviewTable)" class=" ' . $outdatedButton .
+                    'text-light mx-2 btn btn-danger btn-lg" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                        <i class="fas fa-redo-alt mx-1"></i> Restore
+                    </a>
+                </td>';
+
+                    // Integration of all renders (ready to be showed in DOM)
                     $htmlContent .= '
                         <tr>
-                        <td class="align-middle">' . $topic['name'] . '</td>
+                        <td class="align-middle">' . $outdated . $topic['name'] . '</td>
                         <td class="align-middle">' . $subject['name'] . '</td>
                         <td class="align-middle"> 
                             <div class="progress">
@@ -113,22 +158,9 @@ per page values given by the controller of this API. -->
                                 'aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">' . $progress .
                         '</td>' .
 
-                        '<td class="align-middle">
-                        <a onclick="completeTopic( ' .
-                            $topic['review_id'] . ', ' .
-                            $topic['review_date'] . ', ' .
-                            $topic['number_of_review'] . ')" class="mx-2 btn btn-lg btn-success">
-                            <i class="fas fa-check mx-1"></i> Review 
-                        </a>
-
-                        <a onclick="restoreTopicStatus(' . $topic['review_id'] . ', "reviewTable")" class=" ' .
-                           $showRestoreButton . 
-                        'text-light mx-2 btn btn-lg btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                            <i class="fas fa-redo-alt mx-1"></i> Restore
-                        </a>
-                        </td>' .
-
+                        $nextReviewDate . $actions .
                         '</tr>';
+                        
                     $limitFlag++;
                 }
             }

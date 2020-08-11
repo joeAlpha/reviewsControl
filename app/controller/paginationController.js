@@ -8,7 +8,7 @@ let getPage = (indexBegin, userId, topicsPerPage, originRequest) => {
         type: "POST",
         // Before api call: getTopics.php
         url: 'app/model/pagination.php',
-        data: {indexBegin, userId, topicsPerPage},
+        data: {indexBegin, userId, topicsPerPage, originRequest},
         success: function(result) {
             if (result != 0) {
                 // TODO: set the origin request
