@@ -1,6 +1,32 @@
 <!-- Subjects managment view -->
 
-<table class="table table-hover table-dark text-center">
+<div class="row">
+<div id="topicMaker" class="col-md-3">
+            <div class="card bg-dark h-100">
+                <div class="card-header text-center text-light">
+                <i class="fas fa-book-open text-light icon-big my-2"></i>
+                <br>
+                   Subject's register
+                </div>
+                
+                <div class="card-body">
+                    <form id="userForm" action="" method="POST">
+
+                        <div class="form-group">
+                            <input placeholder="Subject's name" type="text" name="name" id="name" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-success btn-lg btn-block" type="submit" value="Save topic" name="saveTopic">
+                                <i class="fas fa-save icon-small mx-1"></i> Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+<table class="table table-hover table-dark text-center col-md-9">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
             <tr>
@@ -20,7 +46,7 @@
                 if(!$subjectResult) {
                     echo "Error in query to get user's subjects";
                 }
-
+                
                 while($subjectRow = $subjectResult->fetch_array(MYSQLI_ASSOC)) { ?>
                 <tr>
                     <th class="align-middle" scope="row"><?php echo $subjectRow['name']; ?></th>
@@ -40,3 +66,4 @@
 
         </tbody>
     </table>
+</div>
