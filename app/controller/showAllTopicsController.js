@@ -6,7 +6,7 @@ function getAllTopics() {
         url: 'app/controller/getAllTopics.php',
         success: function(result) {
             if (result != 0) {
-                $("#mainSection #topicMaker").html(' ');
+                $("#topicMaker").remove();
 
                 // Check if exists the table container, if not, creates it.
                 // This case is used when the user is on edit section.
