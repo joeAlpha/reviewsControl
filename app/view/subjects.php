@@ -4,7 +4,7 @@
 <div id="topicMaker" class="col-md-3">
             <div class="card bg-dark h-100">
                 <div class="card-header text-center text-light">
-                <i class="fas fa-book-open text-light icon-big my-2"></i>
+                <i class="fas fa-book text-light icon-big my-2"></i>
                 <br>
                    Subject's register
                 </div>

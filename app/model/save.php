@@ -23,23 +23,35 @@ and register it into db. -->
             $insertNewTopicQuery = "INSERT INTO review(name,fk_subject) VALUES('$name','$lastSubjectIdValue')";
             $insertNewTopicResult = $connection->query($insertNewTopicQuery);
             if($insertNewTopicResult) {
-                include("../view/reviewTable.php");
+                echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" .
+                '  <i class="fa fa-check"></i> Topic saved ' .
+                ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' .
+                '  <span aria-hidden="true">&times;</span> ' .
+                '</button> ' .
+                "</div>";
+                // include("../view/reviewTable.php");
             } else {
-                echo 0;
+                echo -1;
                 die("Query error");
             }
         } else {
-            echo 0;
+            echo -2;
             die("Query error");
         }
     } else {
         $insertNewTopicQuery = "INSERT INTO review(name,fk_subject) VALUES('$name','$subjectId')";
         $insertNewTopicResult = $connection->query($insertNewTopicQuery);
         if(!$insertNewTopicResult) {
-            echo 0;
+            echo -3;
             die("Query error");
         } else {
-            include("../view/reviewTable.php");
+            // include("../view/reviewTable.php");
+            echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" .
+            '  <i class="fa fa-check"></i> Topic saved ' .
+            ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' .
+            '  <span aria-hidden="true">&times;</span> ' .
+            '</button> ' .
+            "</div>";;
         }
     }
 ?>

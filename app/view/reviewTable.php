@@ -1,7 +1,7 @@
 <!-- Main view, the review of topics -->
 <div id="reviewAlert" class="mx-auto mt-2 text-center"></div>
 
-    <table class="rounded table table-hover table-dark text-center">
+    <table class="rounded table table table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
             <tr>
@@ -119,7 +119,7 @@
                         <a onclick="completeTopic(
                             '<?php echo $row['review_id']; ?>',
                             '<?php echo $row['review_date']; ?>',
-                            '<?php echo $row['number_of_review']?>')" class="mx-2 btn btn-lg btn-success">
+                            '<?php echo $row['number_of_review']?>')" class="mx-2 btn   btn-success">
                             <i class="fas fa-check mx-1"></i> Review 
                         </a>
 
@@ -129,8 +129,8 @@
                                 echo 'd-none';
                             }
                         ?>
-                         text-light mx-2 btn btn-danger btn-lg" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                            <i class="fas fa-redo-alt mx-1"></i> Restore
+                         text-light mx-2 btn btn-danger  " data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                            <i class="fas fa-redo-alt mx-1"></i> Reset
                         </a>
                     </td>
                 </tr>

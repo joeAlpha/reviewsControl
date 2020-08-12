@@ -120,13 +120,13 @@ page by the controller that calls this API. -->
                         $actions =  
                         '<td class="align-middle">
 
-                            <a onclick="loadEditView(' . $topic['review_id'] . ')" class="text-dark mx-2 btn btn-lg btn-warning">
+                            <a onclick="loadEditView(' . $topic['review_id'] . ')" class="text-dark mx-2 btn   btn-warning">
                                 <i class="fas fa-edit mx-1"></i> Edit
                             </a>
 
                             
 
-                            <a onclick="deleteTopic('. $topic['review_id'] . ')" class="mx-2 btn btn-lg btn-danger">
+                            <a onclick="deleteTopic('. $topic['review_id'] . ')" class="mx-2 btn   btn-danger">
                                 <i class="fas fa-trash-alt mx-1"></i> Delete
                             </a>
 
@@ -134,11 +134,11 @@ page by the controller that calls this API. -->
                     } else $actions = 
                     '<td class="align-middle">
                     
-                        <a onclick="completeTopic( ' . $topic['review_id'] . ',' . $topic['review_date'] . ',' . $topic['number_of_review'] .')" class="mx-2 btn btn-lg btn-success">
+                        <a onclick="completeTopic( ' . $topic['review_id'] . ',' . $topic['review_date'] . ',' . $topic['number_of_review'] .')" class="mx-2 btn   btn-success">
                             <i class="fas fa-check mx-1"></i> Review 
                         </a>
 
-                        <a onclick="restoreTopicStatus(' . $topic['review_id'] . ', reviewTable)" class=" ' . $outdatedButton .    'text-light mx-2 btn btn-danger btn-lg" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                        <a onclick="restoreTopicStatus(' . $topic['review_id'] . ', reviewTable)" class=" ' . $outdatedButton .    'text-light mx-2 btn btn-danger  " data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                             <i class="fas fa-redo-alt mx-1"></i> Restore
                         </a>
 

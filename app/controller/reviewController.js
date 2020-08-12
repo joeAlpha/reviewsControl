@@ -11,18 +11,12 @@ $(document).ready(function(e) {
                 data: formData,
                 success: function(result) {
                     if (result != 0) {
-                        $("#tableContainer #reviewAlerts").html(
-                            "<div class='alert alert-success alert-dismissible fade show' role='alert'>" +
-                            '  <i class="fa fa-check"></i> Topic saved ' +
-                            ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
-                            '  <span aria-hidden="true">&times;</span> ' +
-                            '</button> ' +
-                            "</div>"
-                        );
+                        $("#reviewAlert").html(result);
                         setTimeout(function() {
-                            $('#tableContainer #reviewAlerts').html(' ');
+                            $('#reviewAlert').html(' ');
                         }, 3000);
-                        $("#tableContainer").html(result);
+                        
+                        // $("#tableContainer").html(result);
                     } else {
                         alert("ERROR AT INSERT TOPIC");
                     }
