@@ -1,2 +1,2 @@
 <!-- Loads the subject managment view -->
-<?php include('../view/subjects.php'); ?>
+<?php include('../view/subjectManager.php'); ?>

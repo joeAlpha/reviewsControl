@@ -2,7 +2,6 @@
 data of a topic reviewed. */
 
 function completeTopic(id, date, numberOfReview) {
-    // console.log(id + "," + date + "," + numberOfReview);
     $.ajax({
         type: "POST",
         url: 'app/model/complete.php',

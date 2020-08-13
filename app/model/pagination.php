@@ -140,7 +140,7 @@ page by the controller that calls this API. -->
                             <i class="fas fa-check mx-1"></i> Review 
                         </a>
 
-                        <a onclick="restoreTopicStatus(' . $topic['review_id'] . ', reviewTable)" class=" ' . $outdatedButton .    'text-light mx-2 btn btn-danger  " data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                        <a onclick="restoreTopicStatus(' . $topic['review_id'] . ', reviewTable)" class=" ' . $outdatedButton .    ' text-light mx-2 btn btn-danger  " data-toggle="tooltip" data-placement="top" title="Tooltip on top">
                             <i class="fas fa-redo-alt mx-1"></i> Restore
                         </a>
 
