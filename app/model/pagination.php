@@ -108,7 +108,7 @@ page by the controller that calls this API. -->
                     $outdatedButton = "";
                     if(date('Y-m-d', strtotime($topic['review_date'])) < date('Y-m-d')) {
                         $outdated = '<i class="fas fa-exclamation-triangle mr-3 text-warning"></i>';
-                    } else $outdatedButton = 'd-none';
+                    } else $outdatedButton = "d-none"; // Not show the button
 
                     // Rendering the date based on the origin request
                     if($originRequest == "topicTable") {
@@ -124,9 +124,11 @@ page by the controller that calls this API. -->
                                 <i class="fas fa-edit mx-1"></i> Edit
                             </a>
 
-                            
+                            <a onclick="restoreTopicStatus(' . $topic['review_id'] . ', topicTable)" class=" ' . $outdatedButton .    ' text-light mx-2 btn btn-danger " data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                <i class="fas fa-redo-alt mx-1"></i> Reset
+                            </a>
 
-                            <a onclick="deleteTopic('. $topic['review_id'] . ')" class="mx-2 btn   btn-danger">
+                            <a onclick="deleteTopic('. $topic['review_id'] . ')" class="mx-2 btn btn-danger">
                                 <i class="fas fa-trash-alt mx-1"></i> Delete
                             </a>
 
@@ -147,7 +149,7 @@ page by the controller that calls this API. -->
                     // Integration of all renders (ready to be showed in DOM)
                     $htmlContent .= '
                         <tr>
-                            <td class="align-middle">' . $outdated . $topic['name'] . '</td>
+                            <th class="align-middle">' . $outdated . $topic['name'] . '</th>
                             <td class="align-middle">' . $subject['name'] . '</td>
                             <td class="align-middle"> 
                                 <div class="progress">

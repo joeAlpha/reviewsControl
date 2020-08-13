@@ -69,7 +69,7 @@
                     <!-- Progress of mastering the topic -->
                     <td class="align-middle">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped" role="progressbar" style=
+                        <div class="progress-bar progress-bar" role="progressbar" style=
                         "
                             <?php
                                 $progress = $reviewRow['number_of_review']; 
@@ -119,6 +119,7 @@
                         </a>
                         <a onclick="restoreTopicStatus('<?php echo $reviewRow['review_id']?>', 'topicTable')" class="
                         <?php
+                            // Display the reset only if the review is outdated
                             if(date('Y-m-d', strtotime($reviewRow['review_date'])) >= date('Y-m-d')) {
                                 echo 'd-none';
                             }
