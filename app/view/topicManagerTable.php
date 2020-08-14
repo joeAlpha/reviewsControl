@@ -13,7 +13,7 @@
         </thead>
 
         <!-- The topic data area, main content of the table. -->
-        <tbody id="topicTableBody">
+        <tbody id="topicManagerTableBody">
 			<?php
 				include('../model/connection.php');
                 // var_dump($_COOKIE['id']);

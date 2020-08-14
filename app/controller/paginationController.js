@@ -13,8 +13,8 @@ let getPage = (indexBegin, userId, topicsPerPage, originRequest) => {
                     case "reviewTable": 
                         $("#reviewTableBody").html(result);
                         break;
-                    case "topicTable": 
-                        $("#topicTableBody").html(result);
+                    case "topicManagerTable": 
+                        $("#topicManagerTableBody").html(result);
                         break;
                 } 
             } else {

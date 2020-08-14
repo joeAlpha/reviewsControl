@@ -1,6 +1,6 @@
 <!-- <div id="topicMakerAlert"></div> -->
 
-<div id="topicMaker" class="col-md-3">
+<div id="topicMaker" class="">
 	<div class="card bg-dark h-100">
 
     	<div class="card-header text-center text-light">

@@ -12,7 +12,7 @@
 
 <div class="container-fluid p-3" id="mainSection">
     <div class="row">
-        <div id="tableContainer" class="table-responsive">
+        <div id="tableContainer" class="table-responsive p-3">
             <?php include("app/view/reviewTable.php") ?>
         </div>
     </div>

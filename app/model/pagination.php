@@ -111,12 +111,12 @@ page by the controller that calls this API. -->
                     } else $outdatedButton = "d-none"; // Not show the button
 
                     // Rendering the date based on the origin request
-                    if($originRequest == "topicTable") {
+                    if($originRequest == "topicManagerTable") {
                         $nextReviewDate =  '<td class="align-middle">' . date('Y-m-d', strtotime($topic['review_date'])) . '</td>';
                     } else $nextReviewDate = '';
 
                     // Rendering buttons
-                    if($originRequest == "topicTable") {
+                    if($originRequest == "topicManagerTable") {
                         $actions =  
                         '<td class="align-middle">
 
