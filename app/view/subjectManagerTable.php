@@ -1,4 +1,4 @@
-<table class="table table-hover table-dark text-center col-md-9" id="subjectManagerTable">
+<table class="rounded table table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
             <tr>
@@ -11,9 +11,8 @@
         <tbody>
 			<?php
 				include('../model/connection.php');
-                // var_dump($_COOKIE['id']);
                 $userId = $_COOKIE['id']; // possible fail after ajax petition
-                $subjectQuery = "SELECT subject.name FROM subject WHERE subject.user = '$userId'";    
+                $subjectQuery = "SELECT * FROM subject WHERE subject.user = '$userId'";    
                 $subjectResult = $connection->query($subjectQuery);
                 if(!$subjectResult) {
                     echo "Error in query to get user's subjects";

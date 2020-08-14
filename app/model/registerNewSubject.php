@@ -4,12 +4,12 @@ and register it into db. -->
 <?php
     include("connection.php");
     if(isset($_POST) && count($_POST) > 0) {
-        $subjectName = $_POST['subjectName'];
-        $userId = $_POST['userId'];
+        $subjectName = $_POST['name'];
+        $userId = $_COOKIE['id'];
         
         $insertNewSubjectQuery = "INSERT INTO subject(name,user) VALUES('$subjectName','$userId')"; 
         $insertNewSubjectResult = $connection->query($insertNewSubjectQuery);
-        if($insertNewSubjectResult) include("../view/subjects.php");
+        if($insertNewSubjectResult) include("../view/subjectManagerTable.php");
         else echo 0;
     } else {}
 ?>

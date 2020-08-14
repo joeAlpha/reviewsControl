@@ -14,7 +14,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-success btn-lg btn-block" type="submit" value="Save topic" name="saveTopic">
+                            <button class="btn btn-success btn-lg btn-block" type="submit" value="Save subject" name="saveSubject">
                                 <i class="fas fa-save icon-small mx-1"></i> Save
                             </button>
                         </div>

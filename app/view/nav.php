@@ -9,9 +9,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
   
 
-    <a onclick="getAllTopics()" class="btn btn-primary mx-2" href="#" id="" role="button" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-book-open text-light icon-small mr-1"></i> Topic manager</a>
+    <a onclick="loadTopicManager()" class="btn btn-primary mx-2" href="#" id="" role="button" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-book-open text-light icon-small mr-1"></i> Topic manager</a>
     
-    <a onclick="loadSubjects()" class="btn btn-primary mx-2" href="#" id="" role="button" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-book text-light icon-small mr-1"></i> Subject manager</a>
+    <a onclick="loadSubjectManager()" class="btn btn-primary mx-2" href="#" id="" role="button" data-toggle="" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-book text-light icon-small mr-1"></i> Subject manager</a>
 
     <ul class="navbar-nav d-block float-right">
       <li class="nav-item dropdown ">

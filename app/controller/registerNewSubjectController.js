@@ -1,8 +1,10 @@
 /* Sends a request to the API in order
 to save a new subject in the database . */
-
-let registerNewSubject = () => {
-        let formData = $('#registerNewSubjectForm').serialize();
+$(document).ready(function(e) {
+    $('#registerNewSubjectForm').submit(function(submitEvent) {
+        submitEvent.preventDefault();
+        let formData = $(this).serialize();
+        console.log(`Data: ${formData}`);
 
         $.ajax({
             type: "POST",
@@ -11,20 +13,19 @@ let registerNewSubject = () => {
             success: function(result) {
                 if (result != 0) {
                     $("#subjectManagerTable").html(result);
-                 /*    setTimeout(function() {
+                    /*    setTimeout(function() {
                         $('#reviewAlert').html(' ');
                     }, 3000); */
                     
                     // $("#tableContainer").html(result);
                 } else {
-                    alert("ERROR AT INSERT TOPIC");
+                    alert("Error at save the new subject");
                 }
                 
             }
         });
-        });
     });
-}
+});
     
     
     
