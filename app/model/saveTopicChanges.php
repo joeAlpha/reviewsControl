@@ -31,7 +31,7 @@
             WHERE review_id = '$id' ";
         $saveTopicChangesResult = $connection->query($saveTopicChangesQuery);
         if($saveTopicChangesResult) {
-            include("../view/topicTable.php");
+            include("../view/topicManager.php");
         } else {
             echo -1;
         }

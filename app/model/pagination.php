@@ -47,9 +47,13 @@ page by the controller that calls this API. -->
             while($topic = $getTopicsResult->fetch_array(MYSQLI_BOTH)) {
                 
                 $startFlag++;
-                // Checks for start and stop the render
-                if($startFlag >= ($indexBegin-1) && $limitFlag < $topicsPerPage) {
 
+                // Checks for start and stop the render for topic manager
+                if($startFlag >= ($indexBegin-1) &&
+                    $limitFlag < $topicsPerPage) {
+                    
+                    if($originRequest == "reviewTable" && date('Y-m-d', strtotime($topic['review_date'])) > date('Y-m-d')) continue;
+                    
                     switch($topic['number_of_review']) {
                         case 0: 
                             $progressBarWidth = 'width: 10%'; 
@@ -161,6 +165,7 @@ page by the controller that calls this API. -->
                         
                     $limitFlag++;
                 }
+
             }
             
             echo $htmlContent;
