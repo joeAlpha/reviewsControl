@@ -17,8 +17,16 @@
                 if(!$subjectResult) {
                     echo "Error in query to get user's subjects";
                 }
+
+                
+                $counterFlag = 0;
+                $ELEMENTS_PER_PAGE = 6;
                 
                 while($subjectRow = $subjectResult->fetch_array(MYSQLI_ASSOC)) { ?>
+                 <?php
+                    if($counterFlag >= $ELEMENTS_PER_PAGE) break;
+                    $counterFlag++;
+                ?>
                 <tr>
                     <th class="align-middle" scope="row"><?php echo $subjectRow['name']; ?></th>
 
@@ -37,3 +45,8 @@
 
         </tbody>
     </table>
+
+    <?php 
+        $origin = basename(__FILE__, ".php"); // Getting the name of file know the origin of pagination request
+        include("subjectPagination.php"); 
+    ?>
