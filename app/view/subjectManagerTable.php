@@ -1,4 +1,4 @@
-<table class="rounded table table-hover table-dark text-center">
+<table class="rounded table table-sm table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
             <tr>
@@ -8,7 +8,7 @@
         </thead>
 
         <!-- The topic data area, main content of the table. -->
-        <tbody>
+        <tbody id="subjectManagerTableBody">
 			<?php
 				include('../model/connection.php');
                 $userId = $_COOKIE['id']; // possible fail after ajax petition

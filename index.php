@@ -32,6 +32,6 @@
 
 <script src="app/controller/saveEditionController.js"></script>
 <script src="app/controller/logoutController.js"></script>
-<script src="app/controller/registerNewSubjectController.js"></script>
+<script src="app/controller/subjectRegisterController.js"></script>
 
 <?php include("app/view/footer.php"); ?>

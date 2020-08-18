@@ -1,10 +1,11 @@
 /* Sends a request to the API in order
 to save a new subject in the database . */
-$(document).ready(function(e) {
+// $(document).ready(function(e) {
+let registerNewSubject = () => {
     $('#registerNewSubjectForm').submit(function(submitEvent) {
         submitEvent.preventDefault();
         let formData = $(this).serialize();
-        console.log(`Data: ${formData}`);
+        // console.log(`Data: ${formData}`);
 
         $.ajax({
             type: "POST",
@@ -12,7 +13,7 @@ $(document).ready(function(e) {
             data: formData,
             success: function(result) {
                 if (result != 0) {
-                    $("#subjectManagerTable").html(result);
+                    $("#subjectManagerTableBody").html(result);
                     /*    setTimeout(function() {
                         $('#reviewAlert').html(' ');
                     }, 3000); */
@@ -25,7 +26,8 @@ $(document).ready(function(e) {
             }
         });
     });
-});
+};
+
     
     
     
