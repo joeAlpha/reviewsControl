@@ -8,7 +8,6 @@
     <div id="topicManagerTable" class="col-md-9">
         <?php include("topicManagerTable.php"); ?>
     </div>
-    
 </div>
 
 

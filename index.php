@@ -35,4 +35,8 @@
 <script src="app/controller/logoutController.js"></script>
 <script src="app/controller/subjectRegisterController.js"></script>
 
+<script src="web/js/main.js"></script>
+
+
+
 <?php include("app/view/footer.php"); ?>

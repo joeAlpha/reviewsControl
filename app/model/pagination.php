@@ -111,7 +111,7 @@ page by the controller that calls this API. -->
                     $outdated = "";
                     $outdatedButton = "";
                     if(date('Y-m-d', strtotime($topic['review_date'])) < date('Y-m-d')) {
-                        $outdated = '<i class="fas fa-exclamation-triangle mr-3 text-warning"></i>';
+                        $outdated = '<i class="fas fa-exclamation-triangle mr-3 text-warning" data-toggle="tooltip" data-placement="top" title="This topic had to be reviewed before."></i>';
                     } else $outdatedButton = "d-none"; // Not show the button
 
                     // Rendering the date based on the origin request
@@ -163,11 +163,12 @@ page by the controller that calls this API. -->
                             $nextReviewDate . $actions .
                         '</tr>';
                         
+                        
                     $limitFlag++;
                 }
 
             }
-            
+            $htmlContent .= "<br> <script> $(document).ready(function(){  $('[data-toggle=" . 'tooltip' . "]').tooltip(); }); </script>";
             echo $htmlContent;
         } else echo -2;
     } else {

@@ -48,7 +48,7 @@
                     <th class="align-middle" scope="row">
                         <?php 
                             if(date('Y-m-d',strtotime($reviewRow['review_date'])) < date('Y-m-d')) {
-                                echo '<i class="fas fa-exclamation-triangle mr-3 text-warning"></i>';
+                                echo '<i class="fas fa-exclamation-triangle mr-3 text-warning" data-toggle="tooltip" data-placement="top" title="This topic had to be reviewed before."></i>';
                             }
                             echo $reviewRow['name']; 
                         ?>
