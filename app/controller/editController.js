@@ -20,5 +20,5 @@ function loadEditView(id) {
 }
 
 function cancelEdit() {
-    $('#mainSection').load('app/view/topicTable.php');
+    $('#mainSection').load('app/view/topicManager.php');
 }
