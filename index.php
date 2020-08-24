@@ -12,6 +12,8 @@
 
 <div class="container-fluid p-3" id="mainSection">
     <div class="row">
+        <?php include("app/model/connection.php"); ?>
+
         <div id="tableContainer" class="table-responsive p-3">
             <?php include("app/view/reviewTable.php") ?>
         </div>
@@ -30,6 +32,7 @@
 <script src="app/controller/loadSubjectManagerController.js"></script>
 <script src="app/controller/paginationController.js"></script>
 <script src="app/controller/subjectPaginationController.js"></script>
+<script src="app/controller/navController.js"></script>
 
 <script src="app/controller/saveEditionController.js"></script>
 <script src="app/controller/logoutController.js"></script>

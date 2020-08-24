@@ -1,7 +1,7 @@
 <!-- Navigation bar view -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a onclick="reload()" class="navbar-brand" href=""><i class="fas fa-home text-light icon-medium mr-1"></i></a>
+  <a id="returnHome" class="navbar-brand" href=""><i class="fas fa-home text-light icon-medium mr-1"></i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

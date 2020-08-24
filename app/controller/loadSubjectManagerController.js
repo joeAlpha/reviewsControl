@@ -4,7 +4,7 @@ view. */
 function loadSubjectManager() {
     $.ajax({
         type: "POST",
-        url: 'app/controller/includeSubjectManager.php',
+        url: 'app/model/includeSubjectManager.php',
         success: function(result) {
             if (result != 0) {
                 $("#mainSection").html(result);
