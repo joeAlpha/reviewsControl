@@ -33,7 +33,7 @@
                 		                subject.user = '$userId'";
                 		        $result = $connection->query($query);
                 		        while($subject = $result->fetch_array(MYSQLI_ASSOC)) { ?>
-									<option value="<?php echo $row['id'] ?>">
+									<option value="<?php echo $subject['id'] ?>">
                 		        	    <?php echo $subject['name'] ?>
                 		        	</option>;
                 		        <?php } ?>
