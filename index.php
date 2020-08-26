@@ -21,11 +21,12 @@
 </div>
 
 <!-- Action controllers -->
-<script src="app/controller/reviewController.js"></script>
+<script src="app/controller/registerNewTopicController.js"></script>
 <script src="app/controller/restoreController.js"></script>
 <script src="app/controller/completeController.js"></script>
 <script src="app/controller/editController.js"></script>
-<script src="app/controller/deleteController.js"></script>
+<script src="app/controller/deleteTopicController.js"></script>
+<script src="app/controller/deleteSubjectController.js"></script>
 
 <!-- Action controllers -->
 <script src="app/controller/loadTopicManagerController.js"></script>

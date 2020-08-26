@@ -23,13 +23,13 @@ and register it into db. -->
             $insertNewTopicQuery = "INSERT INTO review(name,fk_subject) VALUES('$name','$lastSubjectIdValue')";
             $insertNewTopicResult = $connection->query($insertNewTopicQuery);
             if($insertNewTopicResult) {
-                echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" .
+                /* echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" .
                 '  <i class="fa fa-check"></i> Topic saved ' .
                 ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' .
                 '  <span aria-hidden="true">&times;</span> ' .
                 '</button> ' .
-                "</div>";
-                // include("../view/reviewTable.php");
+                "</div>"; */
+                include("../view/topicManagerTable.php");
             } else {
                 echo -1;
                 die("Query error");
@@ -45,13 +45,13 @@ and register it into db. -->
             echo -3;
             die("Query error");
         } else {
-            // include("../view/reviewTable.php");
-            echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" .
+            include("../view/topicManagerTable.php");
+         /*    echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>" .
             '  <i class="fa fa-check"></i> Topic saved ' .
             ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' .
             '  <span aria-hidden="true">&times;</span> ' .
             '</button> ' .
-            "</div>";;
+            "</div>"; */
         }
     }
 ?>

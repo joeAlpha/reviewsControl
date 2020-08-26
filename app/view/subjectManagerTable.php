@@ -1,3 +1,5 @@
+<div id="subjectAlert" class="mx-auto text-center"></div>
+
 <table class="rounded table table-sm table-hover table-dark text-center">
         <!-- Header of the table, shows the colmun's name. -->
         <thead class="thead-dark">
@@ -34,7 +36,7 @@
                         <a href="app/view/edit.php?id=<?php echo $subjectRow['id']?>" class=" mx-2 btn btn-warning">
                             <i class="fas fa-edit mx-1"></i> Edit
                         </a>
-                        <a onclick="deleteTopic('<?php echo $subjectRow['id']?>')" class="mx-2 btn btn-danger">
+                        <a onclick="deleteSubject('<?php echo $subjectRow['id']?>')" class="mx-2 btn btn-danger">
                             <i class="fas fa-trash-alt mx-1"></i> Delete
                         </a>
 
