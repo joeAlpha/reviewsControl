@@ -13,14 +13,30 @@ let registerNewSubject = () => {
             data: formData,
             success: function(result) {
                 if (result != 0) {
-                    $("#subjectManagerTableBody").html(result);
-                    /*    setTimeout(function() {
-                        $('#reviewAlert').html(' ');
-                    }, 3000); */
-                    
-                    // $("#tableContainer").html(result);
+                    $("#subjectManagerTable").html(result);
+                    $("#subjectManagerTable #subjectAlert").html(
+                        "<div class='alert alert-primary alert-dismissible fade show' role='alert'>" +
+                        '  <i class="fa fa-check mr-2"></i> Subject registered ' +
+                        ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
+                        '  <span aria-hidden="true">&times;</span> ' +
+                        '</button> ' +
+                        "</div>"
+                    );
+                    setTimeout(function() {
+                        $('#subjectManagerTable #subjectAlert').html(' ');
+                    }, 3000);
                 } else {
-                    alert("Error at save the new subject");
+                    $("#subjectManagerTable #subjectAlert").html(
+                        "<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
+                        '  <i class="fa fa-check mr-2"></i> Error at register subject ' +
+                        ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
+                        '  <span aria-hidden="true">&times;</span> ' +
+                        '</button> ' +
+                        "</div>"
+                    );
+                    setTimeout(function() {
+                        $('#subjectManagerTable #subjectAlert').html(' ');
+                    }, 3000);
                 }
                 
             }

@@ -11,18 +11,28 @@ function deleteSubject(id) {
                 // Change the DOM
                 $("#subjectManagerTable").html(result);
 
-                $("#subjectManagerTable #subjectAlert").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
-                    '  <i class="fa fa-check"></i> Subject deleted ' +
+                $("#subjectManagerTable #subjectAlert").html("<div class='alert alert-primary alert-dismissible fade show' role='alert'>" +
+                    '  <i class="fa fa-check mr-2"></i> Subject deleted ' +
                     ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
                     '  <span aria-hidden="true">&times;</span> ' +
                     '</button> ' +
                     "</div>"
                 );
                 setTimeout(function() {
-                    $('#tableContainer #subjectAlert').html(' ');
+                    $('#subjectManagerTable #subjectAlert').html(' ');
                 }, 3000);
             } else {
-                alert("ERROR AT DELETE TOPIC");
+                
+                $("#subjectManagerTable #subjectAlert").html("<div class='alert alert-warning alert-dismissible fade show' role='alert'>" +
+                    '  <i class="fa fa-check mr-2"></i> Error at delete subject ' +
+                    ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
+                    '  <span aria-hidden="true">&times;</span> ' +
+                    '</button> ' +
+                    "</div>"
+                );
+                setTimeout(function() {
+                    $('#subjectManagerTable #subjectAlert').html(' ');
+                }, 3000);
             }
 
         }
