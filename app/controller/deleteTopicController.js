@@ -5,16 +5,16 @@ function deleteTopic(id) {
     id = "id=" + id;
     $.ajax({
         type: "POST",
-        url: "app/model/delete.php", // API which will process the data
+        url: "app/model/deleteTopic.php", // API which will process the data
         data: id, // Data 
         // Actions after the event was processed sucessfully
         success: function(result) {
             // console.log("id: " + id);
             if (result != 0) {
                 // Change the DOM
-                $("#tableContainer").html(result);
+                $("#topicManagerTable").html(result);
 
-                $("#tableContainer #topicAlert").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
+                $("#topicManagerTable #topicAlert").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'>" +
                     '  <i class="fa fa-check"></i> Topic deleted ' +
                     ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
                     '  <span aria-hidden="true">&times;</span> ' +
@@ -22,7 +22,7 @@ function deleteTopic(id) {
                     "</div>"
                 );
                 setTimeout(function() {
-                    $('#tableContainer #topicAlert').html(' ');
+                    $('#topicManagerTable #topicAlert').html(' ');
                 }, 3000);
             } else {
                 alert("ERROR AT DELETE TOPIC");

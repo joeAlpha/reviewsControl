@@ -19,7 +19,7 @@ function deleteSubject(id) {
                     "</div>"
                 );
                 setTimeout(function() {
-                    $('#subjectManagerTable #subjectAlert').html(' ');
+                    $('#tableContainer #subjectAlert').html(' ');
                 }, 3000);
             } else {
                 alert("ERROR AT DELETE TOPIC");
