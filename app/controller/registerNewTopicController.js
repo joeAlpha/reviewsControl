@@ -8,12 +8,12 @@ let registerNewTopic = () => {
             // console.log(formData);
             $.ajax({
                 type: "POST",
-                url: 'app/model/save.php',
+                url: 'app/model/registerNewTopic.php',
                 data: formData,
                 success: function(result) {
                     if (result != 0) {
                         $("#topicManagerTable").html(result);
-                        $("#topicAlert").html(
+                        $("#topicManagerTable #topicAlert").html(
                             "<div class='alert alert-success alert-dismissible fade show' role='alert'>" +
                             '  <i class="fa fa-check"></i> Topic saved ' +
                             ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
@@ -22,12 +22,12 @@ let registerNewTopic = () => {
                             "</div>"
                         );
                         setTimeout(function() {
-                            $('#topicAlert').html(' ');
+                            $('#topicManagerTable #topicAlert').html(' ');
                         }, 3000);
                         
                         // $("#tableContainer").html(result);
                     } else {
-                        $("#topicAlert").html(
+                        $("#topicManagerTable #topicAlert").html(
                             "<div class='alert alert-success alert-dismissible fade show' role='alert'>" +
                             '  <i class="fa fa-check"></i> Error at register new topic ' +
                             ' <button type="button" class="close" data-dismiss="alert" aria-label="Close"> ' +
@@ -36,7 +36,7 @@ let registerNewTopic = () => {
                             "</div>"
                         );
                         setTimeout(function() {
-                            $('#topicAlert').html(' ');
+                            $('#topicManagerTable #topicAlert').html(' ');
                         }, 3000);
                     }
 
