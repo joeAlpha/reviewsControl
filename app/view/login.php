@@ -16,7 +16,9 @@
 		<h1 class="text-light">Review's control</h1>
 		<hr>
 		<span class="text-light">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa omnis minima consequuntur voluptatum ipsa? Laborum cum vero quasi, debitis aliquam ex. Soluta, aspernatur reiciendis adipisci necessitatibus ex harum excepturi recusandae?
+			Review's control is a tool that helps you to memorize/master a specific topic
+			using a techique of "distribute reviews through the time" based on the forgotten curve
+			proposed by the psychologist Hermann Ebbinghaus (January 24, 1850 – February 26, 1909).
 		</span>
 	</div>
 
