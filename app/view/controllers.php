@@ -6,12 +6,13 @@
 <script src="app/controller/deleteTopicController.js"></script>
 <script src="app/controller/deleteSubjectController.js"></script>
 
-<!-- Action controllers -->
+<!-- Load views controllers -->
 <script src="app/controller/loadTopicManagerController.js"></script>
 <script src="app/controller/loadSubjectManagerController.js"></script>
 <script src="app/controller/paginationController.js"></script>
 <script src="app/controller/subjectPaginationController.js"></script>
 <script src="app/controller/navController.js"></script>
+<script src="app/controller/loadSignUpViewController.js"></script>
 
 <script src="app/controller/saveEditionController.js"></script>
 <script src="app/controller/logoutController.js"></script>

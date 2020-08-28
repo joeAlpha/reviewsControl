@@ -46,7 +46,7 @@
 					</div>
 
 					<div class="text-center">
-						<button type="button" onClick="document.location.href='registro.php'" class="btn btn-lg mx-2 	btn-primary">
+						<button type="button" onclick="loadSignUpView()" class="btn btn-lg mx-2 	btn-primary">
 							<i class="fas fa-user-plus"></i>
 							Create account
 						</button>
