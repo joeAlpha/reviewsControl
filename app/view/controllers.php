@@ -12,7 +12,6 @@
 <script src="app/controller/paginationController.js"></script>
 <script src="app/controller/subjectPaginationController.js"></script>
 <script src="app/controller/navController.js"></script>
-<script src="app/controller/loadSignUpViewController.js"></script>
 
 <script src="app/controller/saveEditionController.js"></script>
 <script src="app/controller/logoutController.js"></script>

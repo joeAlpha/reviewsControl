@@ -1,33 +1,41 @@
 <div id="signUpContainer">
-    <div class="card bg-dark h-100">
+    <div class="card bg-dark h-100 m-auto w-75">
 
     <div class="card-header text-center text-light">
-        <i class="fas fa-book-open text-light icon-big my-2"></i>
+        <i class="fas fa-user-plus text-light icon-big my-2"></i>
         <br>
         Create a new account
     </div> <!-- Card header -->
 
     <div class="card-body">
-        <form id="userForm" action="" method="POST">
+        <form id="signUpForm" action="" method="POST">
 
             <div class="form-group">
-                <input placeholder="Topic's name" type="text" name="name" id="name" class="form-control">
+                <input placeholder="Your username" type="text" name="name" id="name" class="form-control">
             </div>
 
             <div class="form-group">
-                <select class="form-control custom-select" id="subject" name="subject">
-                    
-                </select>
+                <input placeholder="Password" type="password" name="passCheck1" id="passCheck1" class="form-control">
             </div>
 
             <div class="form-group">
-                <input placeholder="Or type a new subject" type="text" name="newSubject" id="newSubject" class="form-control">
+                <input placeholder="Confirm your password" type="password" name="passCheck2" id="passCheck2" class="form-control">
             </div>
 
             <div class="form-group">
-                <button class="btn btn-success btn-lg btn-block" type="submit" value="Save topic" name="saveTopic" onclick="registerNewTopic()">
-                    <i class="fas fa-save icon-small mx-1"></i> Save
+                <input placeholder="e-mail" type="e-mail" name="e-mail" id="e-mail" class="form-control">
+            </div>
+
+            <div class="form-group">
+
+                <button class="btn btn-success btn-lg btn-block mb-4" type="submit" value="Save topic" name="saveTopic" onclick="registerNewTopic()">
+                    <i class="fas fa-sign-in-alt icon-small"></i> Register
                 </button>
+
+                <button class="btn btn-primary btn-lg btn-block" type="submit" value="Save topic" name="saveTopic" onclick="loadLoginView()">
+                    <i class="fas fa-user icon-small mx-1"></i> I've an account
+                </button>
+                
             </div>
         </form>
     </div> <!-- Card body -->
