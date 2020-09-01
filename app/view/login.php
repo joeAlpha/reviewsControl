@@ -15,11 +15,11 @@
 		<br>
 		<h1 class="text-light">Review's control</h1>
 		<hr>
-		<span class="text-light">
+		<p class="text-light h5">
 			Review's control is a tool that helps you to memorize/master a specific topic
-			using a techique of "distribute reviews through the time" based on the forgotten curve
-			proposed by the psychologist Hermann Ebbinghaus (January 24, 1850 – February 26, 1909).
-		</span>
+			using a techique of "distribute reviews through the time" based on the <a href="https://en.wikipedia.org/wiki/Forgetting_curve" class="badge badge-primary" target="_blank">Forgetting curve</a>
+			proposed by the psychologist <a href="https://wikipedia.org/wiki/Hermann_Ebbinghaus" class="badge badge-primary" target="_blank">Hermann Ebbinghaus</a> (January 24, 1850 – February 26, 1909).
+		</p>
 	</div>
 
 
@@ -31,8 +31,10 @@
 </div>
 
 <!-- Controllers out of app, only for login and sign up purposes -->
+<script src="../controller/loadLoginViewController.js"></script>
 <script src="../controller/loginController.js"></script>
 <script src="../controller/loadSignUpViewController.js"></script>
-<script src="../controller/loadLoginViewController.js"></script>
+<script src="../controller/signUpController.js"></script>
+
 
 <?php include("footer.php") ?>

@@ -33,7 +33,7 @@
 					</div>
 
 					<div class="container my-4">
-						<a href="" class="badge badge-info">
+						<a href="" class="badge badge-primary">
 							I forgot my password
 						</a>
 					</div>

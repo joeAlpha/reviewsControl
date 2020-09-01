@@ -4,7 +4,7 @@
     <div class="card-header text-center text-light">
         <i class="fas fa-user-plus text-light icon-big my-2"></i>
         <br>
-        Create a new account
+        <h2>Create a new account</h2>
     </div> <!-- Card header -->
 
     <div class="card-body">
@@ -23,12 +23,12 @@
             </div>
 
             <div class="form-group">
-                <input placeholder="e-mail" type="e-mail" name="e-mail" id="e-mail" class="form-control">
+                <input placeholder="e-mail" type="e-mail" name="email" id="e-mail" class="form-control">
             </div>
 
             <div class="form-group">
 
-                <button class="btn btn-success btn-lg btn-block mb-4" type="submit" value="Save topic" name="saveTopic" onclick="registerNewTopic()">
+                <button class="btn btn-success btn-lg btn-block mb-4" type="submit" value="Save topic" name="saveTopic" onclick="signUp()">
                     <i class="fas fa-sign-in-alt icon-small"></i> Register
                 </button>
 
