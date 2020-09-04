@@ -1,7 +1,10 @@
-<!-- Register a new user -->
-<?php
+<?php 
     include("connection.php");
-    if(isset($_POST)) {
+    if(
+        isset($_POST['name']) &&
+        isset($_POST['email']) &&
+        isset($_POST['passCheck1'])
+        ) {
         // Gets data from client request
         $userName = $_POST['name'];
         $email = $_POST['email'];
@@ -13,7 +16,7 @@
             "VALUES('$userName', '$email', '$password')"; 
         $insertNewUserResult = $connection->query($insertNewUserQuery);
 
-        if($insertNewUserResult) echo 0;
+        if($insertNewUserResult) include('../view/loginForm.php');
         else echo -2;
     }
     else echo -1;

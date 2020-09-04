@@ -8,8 +8,25 @@ let signUp = () => {
             url: '../model/signUp.php',
             data: signUpFormData,
             success: function(result) {
-                if (result == 0) $('#formAccessContainer').html('<p>User inserted!</p>');
-                else console.error('Error at API signUp');
+                if(result != -1) {
+                    result += `<div class='alert alert-primary alert-dismissible fade show m-auto w-75 text-center' role='alert' id='signUpConfirmationAlert'>` +
+                        `<i class="fa fa-check"></i> Your account was registered successfull, now check your email ` +
+                        `<button type="button" class="close" data-dismiss="alert" aria-label="Close">` +
+                        `<span aria-hidden="true">&times;</span>` +
+                        `</button>` +
+                        `</div>`;
+
+                    $('#formAccessContainer').html(result);
+
+                    setTimeout(function() {
+                        $('#signUpConfirmationAlert').remove();
+                    }, 5000);
+                } else {
+                    console.log("Error in signUp API");
+                }
+             //       console.log('ok');
+                    // window.location.replace("login.php");
+                    // $('#formAccessContainer').html('');
             }
         });
     });
