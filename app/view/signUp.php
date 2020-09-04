@@ -41,3 +41,4 @@
     </div> <!-- Card body -->
     </div> <!-- Card -->
 </div>
+<div id="signUpAlerts"></div>
