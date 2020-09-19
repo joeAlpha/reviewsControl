@@ -112,9 +112,14 @@
                     <td class="align-middle">
                         <!-- * The result of an echo of PHP inside HTML must be bounded in '' 
                                 in order to be manipulated as a string. * -->
-                        <a onclick="loadEditView('<?php echo $reviewRow['review_id']?>')" class="text-dark mx-2 btn   btn-warning">
-                            <i class="fas fa-edit mx-1"></i> Edit
+                        <a onclick="loadEditView('<?php echo $reviewRow['review_id']?>')" class="text-light mx-2 btn btn-info">
+                            <i class="fas fa-edit mx-1"></i>
                         </a>
+
+                        <a onclick="archiveTopic('<?php echo $reviewRow['review_id']?>')" class="mx-2 btn btn-primary" data-toggle="tooltip" data-placement="top" title="Pause the reviews for this topic">
+                            <i class="fas fa-archive mx-1"></i>
+                        </a>
+
                         <a onclick="restoreTopicStatus('<?php echo $reviewRow['review_id']?>', 'topicTable')" class="
                         <?php
                             // Display the reset only if the review is outdated
@@ -122,11 +127,12 @@
                                 echo 'd-none';
                             }
                         ?>
-                        text-light mx-2 btn   btn-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                            <i class="fas fa-redo-alt mx-1"></i> Reset
+                        text-dark mx-2 btn btn-warning" data-toggle="tooltip" data-placement="top" title="Restore review stats">
+                            <i class="fas fa-redo-alt mx-1"></i>
                         </a>
-                        <a onclick="deleteTopic('<?php echo $reviewRow['review_id']?>')" class="mx-2 btn   btn-danger">
-                            <i class="fas fa-trash-alt mx-1"></i> Delete
+
+                        <a onclick="deleteTopic('<?php echo $reviewRow['review_id']?>')" class="mx-2 btn btn-danger">
+                            <i class="fas fa-trash-alt mx-1"></i>
                         </a>
 
                     </td>
