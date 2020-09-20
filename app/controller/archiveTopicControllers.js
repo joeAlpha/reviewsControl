@@ -1,4 +1,5 @@
-let archiveTopic = (topicId) => {
+let archiveTopic = (id) => {
+    topicId = "topicId=" + id;
     $.ajax({
         type: 'POST',
         url: 'app/model/archiveTopic.php',
