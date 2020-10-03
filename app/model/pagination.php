@@ -128,11 +128,19 @@ page by the controller that calls this API. -->
                         $nextReviewDate =  '<td class="align-middle">' . date('Y-m-d', strtotime($topic['review_date'])) . '</td>';
                     } else $nextReviewDate = '';
 
-                    $archiveButton = 
-                        '<a onclick="archiveTopic(' . $topic['review_id'] . ')" class="mx-2 btn btn-primary" data-toggle="tooltip" data-placement="top" title="Pause the reviews for this topic">
-                            <i class="fas fa-archive mx-1"></i>
+                    if($topic['active']) {
+                        $archiveButton = 
+                        '<a onclick="archiveTopic(' . $topic['review_id'] . ')" class="mx-2 btn btn-warning text-dark" data-toggle="tooltip" data-placement="top" title="Pause the reviews for this topic">
+                        <i class="fas fa-folder mx-1"></i>
+                        </a>';
+                    } else {
+                        $archiveButton = 
+                        '<a onclick="unarchiveTopic(' . $topic['review_id'] . ')" class="mx-2 btn btn-warning text-dark" data-toggle="tooltip" data-placement="top" title="Pause the reviews for this topic">
+                        <i class="fas fa-folder-open mx-1"></i>
                         </a>';
 
+                    }
+                        
                     // Rendering buttons
                     if($originRequest == "topicManagerTable") {
                         $actions =  
