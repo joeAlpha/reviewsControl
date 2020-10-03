@@ -23,7 +23,8 @@ page by the controller that calls this API. -->
                 review.name,
                 review.fk_subject,
                 review.review_date,
-                review.number_of_review 
+                review.number_of_review,
+                review.active
             FROM 
                 review, 
                 subject
@@ -106,7 +107,15 @@ page by the controller that calls this API. -->
                     if($subjectResult) $subject = $subjectResult->fetch_array(MYSQLI_ASSOC);
                     else echo "QUERY ERROR";
 
-                    // TODO: REPLACE ALL IF OF RENDER BY SWITCH INSTEAD
+                    // Archive icon
+                    if(!$topic['active']) {
+                        $archiveIcon = '<i class="fas fa-folder mx-1"></i> ';
+                    } else $archiveIcon = '';
+
+                    // TODO: REPLACE ALL IFs RENDER BY SWITCH INSTEAD
+                    if(date('Y-m-d', strtotime($topic['review_date'])) < date('Y-m-d')) {
+                        $outdated = '<i class="fas fa-exclamation-triangle mr-3 text-warning" data-toggle="tooltip" data-placement="top" title="This topic had to be reviewed before."></i>';
+                    }
                     // Rendering the outdated icon
                     $outdated = "";
                     $outdatedButton = "";
@@ -119,21 +128,28 @@ page by the controller that calls this API. -->
                         $nextReviewDate =  '<td class="align-middle">' . date('Y-m-d', strtotime($topic['review_date'])) . '</td>';
                     } else $nextReviewDate = '';
 
+                    $archiveButton = 
+                        '<a onclick="archiveTopic(' . $topic['review_id'] . ')" class="mx-2 btn btn-primary" data-toggle="tooltip" data-placement="top" title="Pause the reviews for this topic">
+                            <i class="fas fa-archive mx-1"></i>
+                        </a>';
+
                     // Rendering buttons
                     if($originRequest == "topicManagerTable") {
                         $actions =  
                         '<td class="align-middle">
 
-                            <a onclick="loadEditView(' . $topic['review_id'] . ')" class="text-dark mx-2 btn   btn-warning">
-                                <i class="fas fa-edit mx-1"></i> Edit
-                            </a>
+                            <a onclick="loadEditView(' . $topic['review_id'] . ')" class="text-dark mx-2 btn btn-info">
+                                <i class="fas fa-edit mx-1"></i> 
+                            </a>'
 
-                            <a onclick="restoreTopicStatus(' . $topic['review_id'] . ', topicTable)" class=" ' . $outdatedButton .    ' text-light mx-2 btn btn-danger " data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                                <i class="fas fa-redo-alt mx-1"></i> Reset
+                            . $archiveButton .
+
+                            '<a onclick="restoreTopicStatus(' . $topic['review_id'] . ', topicTable)" class=" ' . $outdatedButton .    ' text-dark mx-2 btn btn-warning" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                <i class="fas fa-redo-alt mx-1"></i>
                             </a>
 
                             <a onclick="deleteTopic('. $topic['review_id'] . ')" class="mx-2 btn btn-danger">
-                                <i class="fas fa-trash-alt mx-1"></i> Delete
+                                <i class="fas fa-trash-alt mx-1"></i>
                             </a>
 
                         </td>';
@@ -153,7 +169,7 @@ page by the controller that calls this API. -->
                     // Integration of all renders (ready to be showed in DOM)
                     $htmlContent .= '
                         <tr>
-                            <th class="align-middle">' . $outdated . $topic['name'] . '</th>
+                            <th class="align-middle">' . $archiveIcon . $outdated . $topic['name'] . '</th>
                             <td class="align-middle">' . $subject['name'] . '</td>
                             <td class="align-middle"> 
                                 <div class="progress">

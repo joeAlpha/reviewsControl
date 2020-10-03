@@ -25,11 +25,13 @@
                         review.name,
                         review.fk_subject,
                         review.review_date,
-                        review.number_of_review 
+                        review.number_of_review,
+                        review.active 
                     FROM 
                         review, 
                         subject
                     WHERE 
+                        review.active = true AND
                         review.fk_subject = subject.id AND 
                         subject.user = '$userId' AND 
                         review.review_date <= curdate()";    
@@ -57,6 +59,9 @@
                 <tr>
                     <th class="align-middle" scope="row">
                         <?php
+
+
+                            // Overdue icon
                             if(date('Y-m-d', strtotime($row['review_date'])) < date('Y-m-d')) {
                                 echo '<i class="fas fa-exclamation-triangle mr-3 text-warning" data-toggle="tooltip" data-placement="top" title="This topic had to be reviewed before."></i>';
                             }

@@ -24,7 +24,8 @@
                         review.name,
                         review.fk_subject,
                         review.review_date,
-                        review.number_of_review 
+                        review.number_of_review,
+                        review.active
                     FROM 
                         review, 
                         subject
@@ -47,6 +48,13 @@
                 <tr>
                     <th class="align-middle" scope="row">
                         <?php 
+                        
+                            // Archive icon
+                            if(!$reviewRow['active']) {
+                                echo '<i class="fas fa-folder mr-3 text-info" data-toggle="tooltip" data-placement="top" title="This topic has been archive, is not showing on the reviews."></i>';
+                            }
+
+                            // Overdue icon
                             if(date('Y-m-d',strtotime($reviewRow['review_date'])) < date('Y-m-d')) {
                                 echo '<i class="fas fa-exclamation-triangle mr-3 text-warning" data-toggle="tooltip" data-placement="top" title="This topic had to be reviewed before."></i>';
                             }
@@ -112,13 +120,21 @@
                     <td class="align-middle">
                         <!-- * The result of an echo of PHP inside HTML must be bounded in '' 
                                 in order to be manipulated as a string. * -->
-                        <a onclick="loadEditView('<?php echo $reviewRow['review_id']?>')" class="text-light mx-2 btn btn-info">
+                        <a onclick="loadEditView('<?php echo $reviewRow['review_id']?>')" class="text-light mx-2 btn btn-primary">
                             <i class="fas fa-edit mx-1"></i>
                         </a>
 
-                        <a onclick="archiveTopic('<?php echo $reviewRow['review_id']?>')" class="mx-2 btn btn-primary" data-toggle="tooltip" data-placement="top" title="Pause the reviews for this topic">
-                            <i class="fas fa-archive mx-1"></i>
-                        </a>
+                        <?php
+                            if($reviewRow['active']) {
+                                echo '<a onclick="archiveTopic(' . $reviewRow['review_id'] . ')" class="mx-2 btn btn-warning text-dark" data-toggle="tooltip" data-placement="top" title="Pauses reviews for this topic">
+                                <i class="fas fa-folder mx-1"></i>
+                                </a>';
+                            } else {
+                                echo '<a onclick="unarchiveTopic(' . $reviewRow['review_id'] . ')" class="mx-2 btn btn-warning text-dark" data-toggle="tooltip" data-placement="top" title="Activates reviews for this topic">
+                                <i class="fas fa-folder-open mx-1"></i>
+                                </a>';
+                            }
+                        ?>
 
                         <a onclick="restoreTopicStatus('<?php echo $reviewRow['review_id']?>', 'topicTable')" class="
                         <?php

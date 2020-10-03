@@ -5,7 +5,8 @@
 <script src="app/controller/editController.js"></script>
 <script src="app/controller/deleteTopicController.js"></script>
 <script src="app/controller/deleteSubjectController.js"></script>
-<script src="app/controller/archiveTopicControllers.js"></script>
+<script src="app/controller/archiveTopicController.js"></script>
+<script src="app/controller/unarchiveTopicController.js"></script>
 
 <!-- Load views controllers -->
 <script src="app/controller/loadTopicManagerController.js"></script>
