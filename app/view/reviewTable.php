@@ -16,7 +16,7 @@
         <!-- The topic data area, main content of the table. -->
         <tbody id="reviewTableBody">
             <?php
-                // var_dump($_COOKIE['id']);
+                //var_dump($_COOKIE['id']);
                 if(!isset($connection)) include("../model/connection.php");
                 $userId = $_COOKIE['id']; // possible fail after ajax petition
                 $reviewQuery = 

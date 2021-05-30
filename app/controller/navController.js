@@ -1,23 +1,22 @@
-$(document).ready(function(e) {
-    $("#returnHome").on("click", function(e) {
-        e.preventDefault();
+$(document).ready(function (e) {
+  $("#returnHome").on("click", function (e) {
+    e.preventDefault();
 
-        $.ajax({ 
-            type: 'POST',
-            url: 'app/model/includeReviewTable.php',
-            data: '',
-            success: function(result) {
-                if (result != 0) {
-                    // $('#tableContainer').remove();
-                    // $('#mainSection').remove();
-                    $('#mainSection').html(result);
-                    console.log("o k");
-                } else console.error('');
-            }
-        });
+    $.ajax({
+      type: "POST",
+      url: "app/model/includeReviewTable.php",
+      data: "",
+      success: function (result) {
+        if (result != 0) {
+          // $('#tableContainer').remove();
+          // $('#mainSection').remove();
+          $("#mainSection").html(result);
+          console.log("o k");
+        } else console.error("");
+      },
     });
+  });
 });
-
 
 /* jQuery("#returnHome").on("click", function(e) {
     var href = $(this).attr('href');

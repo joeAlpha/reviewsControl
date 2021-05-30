@@ -1,5 +1,6 @@
 <!-- Checks the rigth credentials for the login requests -->
 <?php
+    //echo $_POST;
     include("connection.php");
 
     if(isset($_POST) && count($_POST) > 0) {

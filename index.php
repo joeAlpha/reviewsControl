@@ -5,6 +5,7 @@
     }
     include("app/model/connection.php");
     include("app/view/header.php");
+    include("app/view/controllers.php"); 
     include("app/view/nav.php"); 
 ?>
 
@@ -24,5 +25,4 @@
 
 <?php 
     include("app/view/footer.php"); 
-    include("app/view/controllers.php"); 
 ?>

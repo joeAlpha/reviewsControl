@@ -4,10 +4,18 @@
     
    $connection = new mysqli(
         "localhost",
-        "root",
-        "",
-        "review_control"
+        "reviewer",
+        'reviews',
+        "reviewsControl"
     );
+/*
+   if ($connection->connect_error) {
+   echo "Not connected, error: " . $connection->connect_error;
+}
+else {
+   echo "Connected.";
+}
+ */
 
 ?>
 
